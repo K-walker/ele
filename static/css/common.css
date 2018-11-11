@@ -1,0 +1,23 @@
+html , body {
+	height: 100%;
+}
+body {
+	margin: 0;
+}
+a {text-decoration: none;}
+ul , li {margin:0;padding: 0 ; list-style: none;}
+
+.fl {float: left;}
+.fr {float: right;}
+
+.padding {padding: 16px;}
+.padding-top {padding-top: 16px;}
+.padding-left {padding-top: 16px;}
+.padding-right {padding-top: 16px;}
+.padding-bottom {padding-top: 16px;}
+
+.margin {margin: 16px;}
+.margin-top {margin-top: 16px;}
+.margin-left {margin-top: 16px;}
+.margin-right {margin-top: 16px;}
+.margin-bottom {margin-top: 16px;}
