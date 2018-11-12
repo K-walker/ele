@@ -25,9 +25,9 @@
     		</section>
     		<section class="shop-line flex">
     			<div class="shop-money flex">
-					<span>￥20元起送</span>
+					<span class="pr-5">￥20起送</span>
 					<span>|</span>
-					<span>远距离配送费￥6.3</span>
+					<span class="pl-5">远距离配送费￥6.3</span>
 				</div>	
     			<div class="shop-timed flex">
 					<span>2.76km</span>
@@ -53,16 +53,16 @@
 	    			<span>减</span>
 	    			<span class="text-overflow">满100减1，满200减2，满300减3</span>
 	    		</li>
-	    		<li>
+	    		<li v-show="showActivitiesList">
 	    			<span>折</span>
 	    			<span class="text-overflow">单品折扣</span>
 	    		</li>
-	    		<li>
+	    		<li v-show="showActivitiesList">
 	    			<span>食</span>
 	    			<span class="text-overflow">该商户食品安全已由国泰产险承担，食品安全有保障</span>
 	    		</li>
 	    	</ul>
-	    	<div class="shop-activitiesBtn">
+	    	<div class="shop-activitiesBtn" @click="showActivitiesList = !showActivitiesList">
 				<span>4个活动</span>
 				<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjOTk5IiBkPSJNNC41NzcgNS40MjNjLjc5Ljc3IDIuMDczLjc2NyAyLjg1NyAwbDQuMTItNC4wMjZDMTIuMzQ1LjYyNSAxMi4wOSAwIDEwLjk4NSAwSDEuMDI3Qy0uMDc3IDAtLjMzLjYzLjQ1NyAxLjM5N2w0LjEyIDQuMDI2eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="">
 			</div>
@@ -73,9 +73,10 @@
 
 <script>
 export default {
-  name: 'RstItem',
+  name: 'ShopItem',
   data () {
     return {
+		showActivitiesList:false
     }
   }
 }
@@ -88,9 +89,11 @@ export default {
 }
 .shop-main section {
 	margin-bottom: 5px;
+	color: #666;
 }
 .shop-name h3 {
 	width: 90%;
+	color: #000;
 	font-size: 14px;
 }
 .shop-logo {
@@ -110,11 +113,10 @@ export default {
 	padding:5px 0px;
 }
 .shop-tags span {
-	border:1px solid #ddd;
 	border-radius: 2px;
 	padding:2px 3px;
-	font-size: 12px;
 	margin-right: 5px;
+	color: #666;
 }
 .shop-rating {
 	align-items:center;
@@ -136,8 +138,13 @@ export default {
 .shop-money {
 	flex:1;
 }
+.shop-activities {
+	margin-top: 20px;
+}
 .shop-activities ul {
 	flex:1;
+	overflow: hidden;
+	color: #666;
 }
 .shop-activities ul li {
 	display: -webkit-flex;
@@ -146,9 +153,19 @@ export default {
 	display: flex;
 	margin-bottom: 5px;
 }
+
 .shop-activities ul li span:first-child {
+	padding: 0 1px;
+	height: 16px;
 	background-color: green;
 	color: #fff;
+	line-height: 16px;
+	margin-right: 5px;
+	text-align: center;
+	font-size: 0.56rem;
+	border-radius: 2px;
+	transform: scale(.9);
+	-webkit-transform: scale(.9)
 }
 .shop-activitiesBtn {
 	color: #999;

@@ -31,18 +31,18 @@
 	    </div>
     </div>
     <section>
-    	<RstItem/>
+    	<ShopItem/>
     </section>
   </div>
 </template>
 
 <script>
 import FastEntries from '@/components/FastEntries'
-import RstItem from '@/components/RstItem'
+import ShopItem from '@/components/ShopItem'
 import F from '@/utils/Function' 
 export default {
   name: 'Home',
-  components: {FastEntries , RstItem},
+  components: {FastEntries , ShopItem},
   data () {
     return {
     	banners:[]
@@ -80,7 +80,6 @@ export default {
 	line-height: 34px;
 	background-color: #fff;
 	border: 1px solid #ddd;
-	box-sizing:;
 	text-align:center;
 }
 .search span {
@@ -113,8 +112,7 @@ export default {
 	-webkit-box-flex: 1;
 }
 .discount .discount-item img {
-	width: 70%;
-	height: 60%;
+	width: 60%;
 	position: absolute;
 	right: 0;
 	bottom: 0;

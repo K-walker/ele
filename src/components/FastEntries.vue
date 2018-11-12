@@ -18,7 +18,6 @@ import F from '@/utils/Function'
 export default {
   name: 'FastEntries',
   mounted () {
-
   	this.$http.get('/api/entries').then( result => {
   		this.swipeData = result.data ;
   	})
