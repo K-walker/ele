@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import { Swipe, SwipeItem } from 'mint-ui'
 import 'mint-ui/lib/style.css'
+import '../static/css/common.css'
 import Axios from 'axios' 
 
 Vue.component(Swipe.name, Swipe);

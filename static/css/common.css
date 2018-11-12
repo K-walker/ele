@@ -4,11 +4,9 @@ html , body {
 body {
 	margin: 0;
 }
+h1 , h2 , h3 {margin: 0}
 a {text-decoration: none;}
 ul , li {margin:0;padding: 0 ; list-style: none;}
-
-.fl {float: left;}
-.fr {float: right;}
 
 .padding {padding: 16px;}
 .padding-top {padding-top: 16px;}
@@ -21,3 +19,24 @@ ul , li {margin:0;padding: 0 ; list-style: none;}
 .margin-left {margin-top: 16px;}
 .margin-right {margin-top: 16px;}
 .margin-bottom {margin-top: 16px;}
+
+.flex {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: -webkit-box;
+	display: flex;
+}
+.text-overflow {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.banner .mint-swipe .mint-swipe-indicators {
+	bottom: 34px;
+}
+.mint-swipe .mint-swipe-indicator {
+	height: 2px;
+}
+.mint-swipe-indicator.is-active {
+	background: #00a6ff;
+}

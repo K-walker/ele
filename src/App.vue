@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header/>
+  	<Header :type="type"/>
     <router-view/>
     <FooterMenu/>
   </div>
@@ -8,12 +8,23 @@
 
 <script>
 
-import Header from '@/components/Header'
 import FooterMenu from '@/components/FooterMenu'
+import Header from '@/components/Header'
 
 export default {
   name: 'App',
-  components: { Header, FooterMenu }
+  data () {
+  	return {
+  		type: this.$route.name === 'Home' ? 1 : 0
+  	}
+  },
+   // 监听路由变化
+  watch: {
+  	'$route': function (to) {
+  		this.type = to.name != 'Home' ? 0 : 1 ;
+  	}
+  },
+  components: { FooterMenu , Header }
 }
 </script>
 
