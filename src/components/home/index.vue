@@ -25,14 +25,15 @@
 	    </div>
     </div>
     <section>
-    	<ShopItem v-for="n in 4"/>
+    	<ShopItem/>
+    	<ShopItem/>
     </section>
   </div>
 </template>
 
 <script>
-import FastEntries from '@/components/FastEntries'
-import ShopItem from '@/components/ShopItem'
+import FastEntries from './FastEntries'
+import ShopItem from './ShopItem'
 import F from '@/utils/Function' 
 export default {
   name: 'Home',

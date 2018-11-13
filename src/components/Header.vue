@@ -1,10 +1,12 @@
 <template>
   <header>
     <div v-if ='type == 0' class="flex">
-        <h1>我的</h1>
-        <span>返回</span>
+      <div class="goback-btn">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE2LjU1MiA1LjYzM0wxNC41MDggMy41OSAyLjI0MyAxNS44NTMgMTQuNTA4IDI4LjQxbDIuMDQ0LTIuMDQzLTEwLjIyLTEwLjUxM3oiLz48L3N2Zz4=">
+      </div>
+      <h1>{{title}}</h1>
     </div>
-    <div v-if ='type == 1' class="flex">
+    <div v-if ='type == 1' class="flex item-center">
         <div class="position-bar flex">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 31" class="position-icon">
               <path fill="#FFF" fill-rule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z"></path>
@@ -22,7 +24,8 @@
 export default {
   name: 'Header',
   props: {
-    type:Number
+    type:Number,
+    title:String
   },
   data () {
     return {
@@ -43,19 +46,26 @@ header {
   background-image: -webkit-gradient(linear,left top,right top,from(#0af),to(#0085ff));
   padding: 8px 10px 0 10px;
 }
+.goback-btn img {
+  width: 10px;
+}
+.item-center {
+  align-items:center;
+}
 header div {
   height: 25px;
-  align-items:center;
+  position: relative;
 }
 h1 {
   margin: 0;
   width: 100%;
-  font-size: 16px;
+  font-size: 13px;
   text-align: center;
   position: absolute;
 }
 .position-bar {
   width:60%;
+  align-items: center;
 }
 .position-bar span {
    font-weight: 600;
