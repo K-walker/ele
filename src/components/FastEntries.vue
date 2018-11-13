@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .mint-swipe {
-	height: 176px;
+	height: 135px;
 }
 a {
 	width: 20%;
@@ -48,13 +48,14 @@ a {
 a span {
 	display: block;
 	text-align: center;
-	font-size:12px;
+	font-size:11px;
+	margin-top: 3px;
 	color: #333;
 }
 .img-box {
-	width: 45px;
-	height: 45px;
-	margin: 10px auto 0 auto;
+	width: 35px;
+	height: 35px;
+	margin: 5px auto 0 auto;
 }
 .img-box img {
 	width: 100%;

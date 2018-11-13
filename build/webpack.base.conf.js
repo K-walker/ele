@@ -4,6 +4,11 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
+const webpack = require('webpack')
+const px2rem = require('postcss-px2rem')
+const postcss = require('postcss')
+
+
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }

@@ -1,74 +1,75 @@
 <template>
-  
 <section class="shop-item">
-    <div class="shop-info flex">
-    	<div class="shop-logo">
-    		<img src="https://fuss10.elemecdn.com/f/48/226c6e26d7398ddfd3821f638c2efpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/" alt="">
-    	</div>
-    	<div class="shop-main">
-    		<section class="shop-name flex">
-    			<h3 class="text-overflow">SUMERIAN咖啡coffee&bagel(陕西北路店)</h3>
-    		</section>
-    		<section class="flex">
-    			<div class="shop-rating flex">
-    				<div class="rating-wrap">
-						<div class="rating-gray flex">
-							<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTU0LjAxNyA4LjA3MmwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMNTMuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0tNDggMEwzLjQ2NSA5LjYzM2MtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w1LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBMNy41NSAzLjM1MmwyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNkw4LjQ5NyA2LjI2OWwuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0xMiAwbC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0wxNy42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bTEyIDBsLTIuNTUyIDEuNTYxYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDI5LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBsMS4xNDYgMi43NjMgMi45ODIuMjM3Yy41NTYuMDQ0LjY3LjM2OC4yNC43MzZsLTIuMjc0IDEuOTQ0LjY5NiAyLjkxYy4xMy41NDItLjE0My43NS0uNjI2LjQ1NGwtMi41NTEtMS41NnptMTIgMGwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMNDEuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2eiIgZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+">
-						</div>
-						<div class="rating-actived flex">
-							<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjUwJSIgeTI9IjUwJSIgaWQ9ImEiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkRFMDAiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkZCMDAwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNNTQuMDE3IDguMDcybC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w1My42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bS00OCAwTDMuNDY1IDkuNjMzYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDUuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMEw3LjU1IDMuMzUybDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2TDguNDk3IDYuMjY5bC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bTEyIDBsLTIuNTUyIDEuNTYxYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDE3LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBsMS4xNDYgMi43NjMgMi45ODIuMjM3Yy41NTYuMDQ0LjY3LjM2OC4yNC43MzZsLTIuMjc0IDEuOTQ0LjY5NiAyLjkxYy4xMy41NDItLjE0My43NS0uNjI2LjQ1NGwtMi41NTEtMS41NnptMTIgMGwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMMjkuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0xMiAwbC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w0MS42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6IiBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=">
-						</div>
-					</div>
-					<span>4.8</span>
-					<span>月售1120单</span>
-    			</div>
-    		</section>
-    		<section class="shop-line flex">
-    			<div class="shop-money flex">
-					<span class="pr-5">￥20起送</span>
-					<span>|</span>
-					<span class="pl-5">远距离配送费￥6.3</span>
-				</div>	
-    			<div class="shop-timed flex">
-					<span>2.76km</span>
-    				<span>|</span>
-    				<span>34分钟</span>
-				</div>	
-    		</section>
-    	</div>
-    </div>
-    <div class="shop-activities-wrap">
-    	<div class="shop-tags flex">
-    		<span>西餐</span>
-    		<span>品质联盟</span>
-    		<span>口碑人气好店</span>
-    	</div>
-		<section class="shop-activities flex">
-			<ul>
-	    		<li>
-	    			<span>首</span>
-	    			<span class="text-overflow">新用户下单立减17元</span>
-	    		</li>
-	    		<li>
-	    			<span>减</span>
-	    			<span class="text-overflow">满100减1，满200减2，满300减3</span>
-	    		</li>
-	    		<li v-show="showActivitiesList">
-	    			<span>折</span>
-	    			<span class="text-overflow">单品折扣</span>
-	    		</li>
-	    		<li v-show="showActivitiesList">
-	    			<span>食</span>
-	    			<span class="text-overflow">该商户食品安全已由国泰产险承担，食品安全有保障</span>
-	    		</li>
-	    	</ul>
-	    	<div class="shop-activitiesBtn" @click="showActivitiesList = !showActivitiesList">
-				<span>4个活动</span>
-				<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjOTk5IiBkPSJNNC41NzcgNS40MjNjLjc5Ljc3IDIuMDczLjc2NyAyLjg1NyAwbDQuMTItNC4wMjZDMTIuMzQ1LjYyNSAxMi4wOSAwIDEwLjk4NSAwSDEuMDI3Qy0uMDc3IDAtLjMzLjYzLjQ1NyAxLjM5N2w0LjEyIDQuMDI2eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="">
+		<div class="shop-info">
+			<div class="shop-logo">
+				<img src="https://fuss10.elemecdn.com/f/48/226c6e26d7398ddfd3821f638c2efpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/">
 			</div>
-		</section>
-    </div>
-</section>
+			<div class="shop-main">
+				<section>
+					<h3>
+						<span>这是一个很长很长很长很长很长很长很长很长的标题</span>
+					</h3>
+				</section>
+				<section>
+					<div class="shop-rating-inner">
+						<div class="shop-rating">
+							<div class="rating-gray">
+								<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTU0LjAxNyA4LjA3MmwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMNTMuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0tNDggMEwzLjQ2NSA5LjYzM2MtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w1LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBMNy41NSAzLjM1MmwyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNkw4LjQ5NyA2LjI2OWwuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0xMiAwbC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0wxNy42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bTEyIDBsLTIuNTUyIDEuNTYxYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDI5LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBsMS4xNDYgMi43NjMgMi45ODIuMjM3Yy41NTYuMDQ0LjY3LjM2OC4yNC43MzZsLTIuMjc0IDEuOTQ0LjY5NiAyLjkxYy4xMy41NDItLjE0My43NS0uNjI2LjQ1NGwtMi41NTEtMS41NnptMTIgMGwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMNDEuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2eiIgZmlsbD0iI0VFRSIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+">
+							</div>
+							<div class="rating-actived">
+								<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IHgxPSIwJSIgeTE9IjUwJSIgeTI9IjUwJSIgaWQ9ImEiPjxzdG9wIHN0b3AtY29sb3I9IiNGRkRFMDAiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjRkZCMDAwIiBvZmZzZXQ9IjEwMCUiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBkPSJNNTQuMDE3IDguMDcybC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w1My42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bS00OCAwTDMuNDY1IDkuNjMzYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDUuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMEw3LjU1IDMuMzUybDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2TDguNDk3IDYuMjY5bC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6bTEyIDBsLTIuNTUyIDEuNTYxYy0uNDc2LjI5MS0uNzU4LjA5Ni0uNjI2LS40NTVsLjY5Ni0yLjkwOS0yLjI3My0xLjk0NGMtLjQyNC0uMzYyLS4zMjUtLjY5MS4yMzktLjczNmwyLjk4Mi0uMjM3TDE3LjYzLjU4OWMuMjEzLS41MTUuNTU3LS41MjMuNzc0IDBsMS4xNDYgMi43NjMgMi45ODIuMjM3Yy41NTYuMDQ0LjY3LjM2OC4yNC43MzZsLTIuMjc0IDEuOTQ0LjY5NiAyLjkxYy4xMy41NDItLjE0My43NS0uNjI2LjQ1NGwtMi41NTEtMS41NnptMTIgMGwtMi41NTIgMS41NjFjLS40NzYuMjkxLS43NTguMDk2LS42MjYtLjQ1NWwuNjk2LTIuOTA5LTIuMjczLTEuOTQ0Yy0uNDI0LS4zNjItLjMyNS0uNjkxLjIzOS0uNzM2bDIuOTgyLS4yMzdMMjkuNjMuNTg5Yy4yMTMtLjUxNS41NTctLjUyMy43NzQgMGwxLjE0NiAyLjc2MyAyLjk4Mi4yMzdjLjU1Ni4wNDQuNjcuMzY4LjI0LjczNmwtMi4yNzQgMS45NDQuNjk2IDIuOTFjLjEzLjU0Mi0uMTQzLjc1LS42MjYuNDU0bC0yLjU1MS0xLjU2em0xMiAwbC0yLjU1MiAxLjU2MWMtLjQ3Ni4yOTEtLjc1OC4wOTYtLjYyNi0uNDU1bC42OTYtMi45MDktMi4yNzMtMS45NDRjLS40MjQtLjM2Mi0uMzI1LS42OTEuMjM5LS43MzZsMi45ODItLjIzN0w0MS42My41ODljLjIxMy0uNTE1LjU1Ny0uNTIzLjc3NCAwbDEuMTQ2IDIuNzYzIDIuOTgyLjIzN2MuNTU2LjA0NC42Ny4zNjguMjQuNzM2bC0yLjI3NCAxLjk0NC42OTYgMi45MWMuMTMuNTQyLS4xNDMuNzUtLjYyNi40NTRsLTIuNTUxLTEuNTZ6IiBmaWxsPSJ1cmwoI2EpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=">
+							</div>
+						</div>
+						<span>4.8</span>
+						<span>月售1120单</span>
+					</div>
+				</section>
+				<section class="shop-line">
+					<div class="shop-money">
+						<span>￥20起送</span>
+						<span>远距离配送费￥6.3</span>
+					</div>	
+	    			<div class="shop-timed">
+						<span>2.76km</span>
+	    				<span>34分钟</span>
+					</div>	
+				</section>
+			</div>
+		</div>
+		<div class="shop-activities-wrap">
+			<div class="shop-tags">
+				<span>西餐</span>
+	    		<span>品质联盟</span>
+	    		<span>口碑人气好店</span>
+			</div>
+			<div class="shop-activities">
+				<ul>
+					<li>
+		    			<span>首</span>
+		    			<span>新用户下单立减17元</span>
+		    		</li>
+		    		<li>
+		    			<span>减</span>
+		    			<span>满100减1，满200减2，满300减3</span>
+		    		</li>
+		    		<li v-show="showActivitiesList">
+		    			<span>折</span>
+		    			<span>单品折扣</span>
+		    		</li>
+		    		<li v-show="showActivitiesList">
+		    			<span>食</span>
+		    			<span>该商户食品安全已由国泰产险承担，食品安全有保障</span>
+		    		</li>
+				</ul>
+				<div class="shop-activities-btn" @click="showActivitiesList = !showActivitiesList">
+					<span>4个活动</span>
+					<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjOTk5IiBkPSJNNC41NzcgNS40MjNjLjc5Ljc3IDIuMDczLjc2NyAyLjg1NyAwbDQuMTItNC4wMjZDMTIuMzQ1LjYyNSAxMi4wOSAwIDEwLjk4NSAwSDEuMDI3Qy0uMDc3IDAtLjMzLjYzLjQ1NyAxLjM5N2w0LjEyIDQuMDI2eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="">
+				</div>
+			</div>
+			
+		</div>
+		
+	</section>
 </template>
 
 <script>
@@ -83,95 +84,136 @@ export default {
 </script>
 
 <style scoped>
-.shop-item {
-	font-size: 12px;
-	padding: 0 10px;
-}
-.shop-main section {
-	margin-bottom: 5px;
-	color: #666;
-}
-.shop-name h3 {
-	width: 90%;
-	color: #000;
-	font-size: 14px;
-}
-.shop-logo {
-	width: 65px;
-}
-.shop-logo img {
-	width: 100%;
-}
-.shop-main {
-	flex:1;
-	margin-left: 10px;
-}
-.shop-activities-wrap {
-	padding-left: 75px;
-}
-.shop-tags {
-	padding:5px 0px;
-}
-.shop-tags span {
-	border-radius: 2px;
-	padding:2px 3px;
-	margin-right: 5px;
-	color: #666;
-}
-.shop-rating {
-	align-items:center;
-}
-.shop-rating span{
-	padding: 0 5px;
-}
-.rating-wrap {
-	position: relative;
-}
-.rating-wrap div {
-	overflow: hidden;
-}
-.rating-actived {
-	width: 90%;
-	position: absolute;
-	top: 0;
-}
-.shop-money {
-	flex:1;
-}
-.shop-activities {
-	margin-top: 20px;
-}
-.shop-activities ul {
-	flex:1;
-	overflow: hidden;
-	color: #666;
-}
-.shop-activities ul li {
+.shop-item .shop-info ,
+.shop-rating-inner ,
+.shop-activities ,
+.shop-money ,
+.shop-timed ,
+.shop-activities ul li ,
+.shop-item .shop-main h3 ,
+.shop-item section {
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: -webkit-box;
 	display: flex;
+}
+.shop-activities ul ,
+.shop-item .shop-main {
+	-webkit-flex: 1;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+.shop-item .shop-main h3 span,
+.shop-activities ul li span:last-child ,
+.shop-money span:last-child {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.shop-line {
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+}
+.shop-money span+span {
+	max-width: 120px;	
+}
+.shop-money span {
+	font-size: 8px;
+}
+.shop-timed span+span:before ,
+.shop-money span+span:before {
+	margin: 0 2px;
+	color: #ddd;
+    content:"|";
+}
+.shop-item {
+	padding: 10px;
+	border-bottom: 1px solid #eee;/*no*/
+}
+.shop-item .shop-logo {
+	width: 48px;
+	height: 48px;
+	flex:none;
+	-webkit-flex:none;
+	-ms-flex:none;
+	-webkit-box-flex:none;
+}
+.shop-item .shop-logo img {
+	width: 100%;
+	height: 100%;
+}
+.shop-item .shop-main {
+	margin-left: 5px;
+	overflow: hidden;
+}
+.shop-main section {
+	color: #666;
 	margin-bottom: 5px;
 }
+.shop-main section:last-child {
+	margin-bottom: 0px;
+}
+.shop-item .shop-main h3 {
+	font-size: 12px;
+	overflow: hidden;
+	color: #000;
+}
+.shop-rating {
+	position: relative;
+}
+.shop-rating-inner span {
+	padding: 0 2px;
+}
+.shop-rating .rating-actived {
+	width: 90%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
 
+.shop-activities-wrap {
+	padding-left: 53px;
+	margin-top: 10px;
+}
+
+.shop-tags span {
+	border:1px solid rgb(221, 221, 221);/*no*/
+	border-radius: 2px;
+	padding: 0 1px;/*no*/
+	color: rgb(102, 102, 102);
+}
+
+.shop-activities {
+	margin-top: 10px;
+}
+.shop-activities ul {
+	overflow: hidden;
+}
+.shop-activities ul li {
+	padding: 1px 0;/*no*/
+}
 .shop-activities ul li span:first-child {
-	padding: 0 1px;
-	height: 16px;
+	padding: 1px;/*no*/
+	border-radius: 2px;
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+	font-size: 8px;
 	background-color: green;
 	color: #fff;
-	line-height: 16px;
-	margin-right: 5px;
 	text-align: center;
-	font-size: 0.56rem;
-	border-radius: 2px;
-	transform: scale(.9);
-	-webkit-transform: scale(.9)
+	margin-right: 5px;
+	align-items:center;
 }
-.shop-activitiesBtn {
-	color: #999;
+.shop-activities-btn,
+.shop-activities ul li span:last-child {
+	font-size: 8px;
+	color: #666;
 }
-.shop-activitiesBtn img{
-	width: 8px;
+.shop-activities-btn img {
+	width: 6px;
 	vertical-align: middle;
 }
 </style>

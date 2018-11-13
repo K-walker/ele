@@ -1,13 +1,14 @@
 <template>
   <div id="app">
   	<Header :type="type"/>
+    <SearchBar/>
     <router-view/>
     <FooterMenu/>
   </div>
 </template>
 
 <script>
-
+import SearchBar from '@/components/SearchBar'
 import FooterMenu from '@/components/FooterMenu'
 import Header from '@/components/Header'
 
@@ -24,7 +25,7 @@ export default {
   		this.type = to.name != 'Home' ? 0 : 1 ;
   	}
   },
-  components: { FooterMenu , Header }
+  components: {FooterMenu , Header , SearchBar}
 }
 </script>
 

@@ -30,7 +30,7 @@ export default {
 
 <style scoped>
 footer {
-	height: 60px;
+	height: 30px;
 }
 .footer-menu {
 	position: fixed;
@@ -59,6 +59,6 @@ footer {
 }
 .footer-menu .menu-item i {
 	display: block;
-	height: 1.5rem;
+	height: 15px;
 }
 </style>
