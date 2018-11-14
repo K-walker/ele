@@ -10,7 +10,7 @@
 						<span>这是一个很长很长很长很长很长很长很长很长的标题</span>
 					</h3>
 				</section>
-				<section>
+				<section class="shop-ration-wrap">
 					<div class="shop-rating-inner">
 						<div class="shop-rating">
 							<div class="rating-gray">
@@ -22,6 +22,9 @@
 						</div>
 						<span>4.8</span>
 						<span>月售1120单</span>
+					</div>
+					<div class="delivery-mode">
+						<span>蜂鸟专送</span>
 					</div>
 				</section>
 				<section class="shop-line">
@@ -110,6 +113,18 @@ export default {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+.shop-ration-wrap {
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
+}
+.delivery-mode span {
+	color: #fff;
+	font-size: 8px;
+	display: block;
+	transform:scale(.8);
+	background-image: -webkit-linear-gradient(45deg,#0085ff,#0af);
+    background-image: linear-gradient(45deg,#0085ff,#0af);
 }
 .shop-line {
 	-webkit-justify-content:space-between;

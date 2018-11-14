@@ -48,7 +48,7 @@ a {
 a span {
 	display: block;
 	text-align: center;
-	font-size:11px;
+	font-size:9px;
 	margin-top: 3px;
 	color: #333;
 }

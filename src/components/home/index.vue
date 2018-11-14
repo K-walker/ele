@@ -1,6 +1,8 @@
 <template>
   <div class="home">
+  	<!-- 快捷入口 -->
     <FastEntries />
+    <!-- 推荐商品 -->
     <div class="recommend">
     	<div class="discount">
 	    	<div class="discount-item">
@@ -24,7 +26,19 @@
 			</mt-swipe>
 	    </div>
     </div>
-    <section>
+    <div class="filtermodal" v-show="filtermodal" @click="filtermodal = !filtermodal"></div>
+    <div class="shoplist-title">推荐商家</div>
+    <ShopFilter v-on:showfiltermodal="toggleFilterModal"/>
+    <!-- 商家列表 -->
+    <section class="shoplist">
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
+    	<ShopItem/>
     	<ShopItem/>
     	<ShopItem/>
     </section>
@@ -34,12 +48,14 @@
 <script>
 import FastEntries from './FastEntries'
 import ShopItem from './ShopItem'
+import ShopFilter from './ShopFilter'
 import F from '@/utils/Function' 
 export default {
   name: 'Home',
-  components: {FastEntries , ShopItem},
+  components: {FastEntries , ShopItem , ShopFilter},
   data () {
     return {
+    	filtermodal:false ,
     	banners:[]
     }
   },
@@ -49,8 +65,11 @@ export default {
   	})
   },
   methods: {
-  	getImage: function (image_hash) {
+  	getImage (image_hash) {
   		return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/568x/')
+  	},
+  	toggleFilterModal (isshow) {
+  		this.filtermodal = isshow ;
   	}
   }
 }
@@ -67,6 +86,40 @@ export default {
 	width: 100%;
 	height: 100%;
 }
+.filtermodal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    background: rgba(0,0,0,.5);
+}
+.shoplist-title {
+	display: -webkit-flex;
+	display: -webkit-box;
+	display: -ms-flex;
+	display: flex;
+	height: 30px;
+	align-items:center;
+	-webkit-justify-content:center;
+	justify-content:center;
+}
+.shoplist-title:before {
+	content: '';
+	width: 15px;
+	height: 1px;/*no*/
+	background-color: #999;
+	margin-right: 10px;
+}
+.shoplist-title:after {
+	content: '';
+	width: 15px;
+	height: 1px;/*no*/
+	background-color: #999;
+	margin-left: 10px;
+}
+
 .discount {
 	display: flex;
 	display: -webkit-flex;

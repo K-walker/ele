@@ -12,6 +12,7 @@ export default {
   name: 'SearchBar',
   data () {
     return {
+    	
     }
   }
 }
@@ -19,6 +20,9 @@ export default {
 
 <style scoped>
 .search-bar {
+	position: sticky;
+    top: 0;
+    z-index: 999;
 	padding: 6px 10px ;
 	background-image: -webkit-gradient(linear,left top,right top,from(#0af),to(#0085ff));
 	background-image: -webkit-linear-gradient(left,#0af,#0085ff);

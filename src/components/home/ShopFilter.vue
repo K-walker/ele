@@ -1,0 +1,212 @@
+<template>
+  <div class="shop-filter-wrap">
+      <!--filter bar -->
+      <div class="shop-filter-header">
+        <div 
+            v-for="item in filterBar"
+            :key="item.id"
+            :class='["shop-filter-item", currentFilterTabId == item.id ? activeCls : ""]'
+            @click="onFilterTabClick(item)">
+          <span>{{item.name}}</span>
+          <svg v-if="item.id == 0" viewBox="0 0 72 32" class="dropdown-icon">
+            <path d="M36 32l36-32h-72z"></path>
+          </svg>
+        </div>
+      </div>
+      <!--filter list -->
+      <div class="filter-main" v-if="showFilterList">
+        <div class="filter-sort" v-show="currentFilterTabId == 0">
+          <ul>
+            <li v-for="sort in sortList" :key="sort.id">
+              <span>{{sort.text}}</span>
+              <img class="selected" v-if="sort.id == selectedSortId" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAkFJREFUSA3tlbtrVFEQxr/JusEkdqYR0mU3EGyECCKCIEIghIgSfBSCCkbwWqTQykoQ41+QbHaRRC0MSDCgjeADO0ERQRBB10YsU/gC89jd8ZuNez17H7gmN2BxT7Fnzpw587vzzbl3gXSkCqQKJKSAJJQnlKb3huawjDkCZj94KIiIukGbAs5P636t4h5J2w1GyHz5ghx1wW3uIgm7b0pPaQ2PHOg3tGEimDsxsKpKbkonqoqbqmivgwRLksFI+by8DoITkXqgqJ1fq7hN4GgDwMQVajxa9uR+w+fOW9zFeuz+ou74UoEl3+2fFyilPPs+BmpxkVLnpnVvflLHTT4/WYSRL+mu1QpecOsPlAseukTorYgjviuU2F4DWcFzytbNqCfSjtPlMfnsn/htsJ+HoLjDS9Tl7ongOuW97Pqi7FDFslzvlUFtHNRVvOkr6Im15dpvb0Ev8sEWglCWWmoFallCFeeLuqdWxVNW0+nCaM9JB8bxE9cIHAvsWaL5kx6OXxGpBfei1iGwBeUmdYTdXSA84x6ijCv+q9K0gcdbuzH89hib1OIISW3n+JV5wMkL5oiBviT0yL9ALW8k2DY+elLidNXsuEEF3mW7METoj7iYOH+k1G4wb+8MKz3j+uq24JNksS/qxodiIxyxFTdie/pxjk/3sLG2mZUu8sszuF5oPYebMM7eeVe3LS3iGS/bAKHfeasPsBWv4uJb8f+1YktiPezIYth6mhEc3ii0lQdriuGfQbbJkS5SBf5HBX4Bvl6o9YDxgOsAAAAASUVORK5CYII=">
+            </li>
+          </ul>
+        </div>
+        <div class="filter-sort" v-show="currentFilterTabId == 3">
+          <div>
+            <dl v-for="group in filterGroup" :key="group.group_type">
+              <dt>{{group.group_name}}</dt>
+              <dd>
+                <div v-for="item in group.list" :key="item.id">
+                  <img v-if="item.image_hash" :src="getImage(item.image_hash)">
+                  <span>{{item.text}}</span>
+                </div>
+              </dd>
+            </dl>
+          </div> 
+          <div class="filter-buttons">
+            <span class="clear">清空</span>
+            <span class="confirm">确定</span>
+          </div>
+        </div>
+      </div>
+  </div>
+</template>
+
+<script>
+import F from '@/utils/Function'
+export default {
+  name: 'ShopFilter',
+  data () {
+    return {
+      activeCls:'',
+      showFilterList:false,
+      currentFilterTabId:-1,
+      selectedSortId:1,
+      filterBar:[
+        {id:0,name:'综合排序', filterList: [
+          {id:1 , text:'综合排序'},
+          {id:2 , text:'好评优先'},
+          {id:3 , text:'销量最高'},
+          {id:4 , text:'起送价最低'},
+          {id:5 , text:'配送最快'},
+          {id:6 , text:'配送费最低'},
+          {id:7 , text:'人均从低到高'},
+          {id:8 , text:'人均从高到低'}
+        ]},
+        {id:1, name:'距离最近'},
+        {id:2, name:'品质联盟'},
+        {id:3, name:'筛选' , filterList:[
+          {
+            group_type:1,
+            group_name:'商家服务(可多选)',
+            list:[
+              {id:1 , text:'蜂鸟专送' , image_hash:'b9b45d2f6ff0dbeef3a78ef0e4e90abapng'},
+              {id:2 , text:'品牌商家' , image_hash:'67c417ba499b9ef8240b8014a453bf30png'},
+              {id:3 , text:'食安保' , image_hash:'2cd444d002a94325c5dff004fb3b9505png'},
+              {id:4 , text:'新店' , image_hash:'c93ded991df780906f7471128a226104png'},
+              {id:5 , text:'开发票' , image_hash:'3d45668ffc03151826f95b75249bea31png'}
+            ]
+          },
+          {
+            group_type:2,
+            group_name:'优惠活动(单选)',
+            list:[
+              {id:1 , text:'新用户优惠'},
+              {id:2 , text:'特价商品'},
+              {id:3 , text:'下单立减'},
+              {id:4 , text:'赠品优惠'},
+              {id:5 , text:'下单返红包'},
+              {id:6 , text:'进店领红包'}
+            ]
+          },
+          {
+            group_type:3,
+            group_name:'人均消费',
+            list:[
+              {id:1 , text:'￥20以下'},
+              {id:2 , text:'￥20-￥40'},
+              {id:3 , text:'￥40-￥60'},
+              {id:4 , text:'￥60-￥80'},
+              {id:5 , text:'￥80-￥100'},
+              {id:6 , text:'￥100以上'}
+            ]
+          }
+        ]}
+      ],
+      sortList:[],
+      filterGroup:[]
+    }
+  },
+  methods:{
+    getImage (image_hash) {
+      return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!24x24r/gravity/Center/crop/24x24/')
+    },
+    onFilterTabClick (barItem) {
+      this.currentFilterTabId = barItem.id ;
+      let showMore = barItem.filterList && barItem.filterList.length > 0 ;
+      this.activeCls = showMore ? 'open' : 'active' ;
+      showMore ?  this.showSortModal(barItem) :  this.filterShop(barItem) ;
+    },
+    // 显示过滤选项
+    showSortModal (bar) {
+        
+    },
+    // 过滤商家
+    filterShop (bar) {
+      
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.flex {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flex;
+  display: flex;
+}
+
+.shop-filter-wrap {
+  position: sticky;
+  z-index:999;
+  top: 38px;
+  background-color: #fff;
+
+  .shop-filter-header {
+    @extend .flex ;
+    align-items:center;
+    -webkit-justify-content:space-around;
+    justify-content:space-around;
+     border-bottom: 1px solid #ddd;/*no*/
+    .shop-filter-item.open {
+      .dropdown-icon {
+          fill: #3190e8;
+      }
+      span {
+          color: #3190e8;
+      }
+    }
+    .shop-filter-item.active {
+      span {
+          color: #333;
+          font-weight:700;
+       }
+    }
+    .shop-filter-item {
+      @extend .flex ;
+      height: 30px;
+      align-items:center;
+      position: relative;
+
+      span {
+        color: #666;
+        font-size: 11px;
+      }
+      .dropdown-icon {
+        width: 5px;
+        margin-left: 3px;
+        fill:#333;
+      } 
+    }
+  }
+  
+  .filter-main {
+    .filter-sort {
+      ul {
+        padding-top:5px;
+        padding-bottom:5px;
+        li {
+           @extend .flex ;
+           align-items:center;
+           -webkit-justify-content:space-between;
+           justify-content:space-between;
+           padding: 7px 15px;
+           span {
+              font-size:8px;
+              color:#666;
+           }
+           .selected {
+              width: 12px;
+              height: 12px;
+           }
+        }
+      }
+    }
+  }
+
+}
+
+</style>

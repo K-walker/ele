@@ -14,18 +14,12 @@ import Header from '@/components/Header'
 
 export default {
   name: 'App',
+  components: {FooterMenu , Header , SearchBar},
   data () {
   	return {
       title:'',
   		type: this.$route.name === 'msite' ? 1 : 0
   	}
-  },
-  mounted () {
-    // this.$nextTick( () => {
-    //   document.querySelector('#app').addEventListener('scroll' , (e) => {
-    //       console.log(e.target.srcollTop)
-    //   })
-    // })
   },
   // 监听路由变化
   watch: {
@@ -34,14 +28,10 @@ export default {
       if(to.name === 'profile')  { this.title = '我的'}
       this.type = to.name != 'msite' ? 0 : 1 ;
   	}
-  },
-  components: {FooterMenu , Header , SearchBar}
+  }
 }
 </script>
 
 <style scoped>
-  #app {
-    max-width: 667px;/*no*/
-    overflow: auto;
-  }
+  
 </style>
