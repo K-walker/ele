@@ -77,13 +77,16 @@ footer {
 	text-align: center;
 	flex-direction: column;
 }
-#foot_guide  .footer_item span {
+#foot_guide .footer_item span {
 	display: block;
 	color: #8e8e93;
+}
+#foot_guide .footer_item.router-link-active span {
+	color: #3190e8;
 }
 #foot_guide  .footer_item .icon_style {
 	width: 14px;
 	height: 14px;	
-	fill: red;
 }
+
 </style>

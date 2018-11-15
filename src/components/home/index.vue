@@ -28,7 +28,10 @@
     </div>
     <div class="filtermodal" v-show="filtermodal" @click="filtermodal = !filtermodal"></div>
     <div class="shoplist-title">推荐商家</div>
-    <ShopFilter v-on:showfiltermodal="toggleFilterModal"/>
+    <ShopFilter 
+    	v-on:showfiltermodal="toggleFilterModal"
+    	v-on:filtershop="filterShop"
+    />
     <!-- 商家列表 -->
     <section class="shoplist">
     	<ShopItem/>
@@ -70,6 +73,10 @@ export default {
   	},
   	toggleFilterModal (isshow) {
   		this.filtermodal = isshow ;
+  	},
+  	// 筛选商家
+  	filterShop (item) {
+  		console.log(item.name);
   	}
   }
 }
