@@ -36,13 +36,13 @@ export default {
 }
 .search-bar a {
 	display: block;
-	line-height: 26px;
+	line-height: 30px;
 	background-color: #fff;
 	box-sizing:border-box;
 	text-align:center;
 }
 .search-bar span {
 	color: #999;
-	font-size: 10px;
+	font-size: 12px;
 }
 </style>

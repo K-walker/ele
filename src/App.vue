@@ -18,16 +18,24 @@ export default {
   data () {
   	return {
       title:'',
-  		type: this.$route.name === 'msite' ? 1 : 0
+  		type: ''
   	}
+  },
+  created () {
+    this.setHeader(this.$route);
   },
   // 监听路由变化
   watch: {
   	'$route': function (to) {
-      if(to.name === 'order')  { this.title = '订单' }
-      if(to.name === 'profile')  { this.title = '我的'}
-      this.type = to.name != 'msite' ? 0 : 1 ;
+      this.setHeader(to);
   	}
+  },
+  methods : {
+    setHeader (route) {
+      if(route.name === 'order')    { this.title = '订单' }
+      if(route.name === 'profile')  { this.title = '我的' }
+      this.type = route.name != 'msite' ? 0 : 1 ;
+    }
   }
 }
 </script>

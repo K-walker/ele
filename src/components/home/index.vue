@@ -26,7 +26,7 @@
 			</mt-swipe>
 	    </div>
     </div>
-    <div class="filtermodal" v-show="filtermodal" @click="filtermodal = !filtermodal"></div>
+    <div class="filtermodal" touchstart v-show="filtermodal" @click="filtermodal = !filtermodal"></div>
     <div class="shoplist-title">推荐商家</div>
     <ShopFilter 
     	v-on:showfiltermodal="toggleFilterModal"
@@ -83,6 +83,9 @@ export default {
 </script>
 
 <style scoped>
+.home {
+	background-color: #fff;
+}
 .recommend {
 	padding: 0 10px;
 }
