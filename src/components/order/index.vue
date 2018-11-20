@@ -1,14 +1,18 @@
 <template>
   <div class="order-list">
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
-   	<OrderItem/>
+    <template v-if="$route.name == 'order'">
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+       <OrderItem />
+    </template>
+    <router-view v-else />
   </div>
 </template>
 
@@ -18,7 +22,12 @@ export default {
   name: 'Order',
   components: { OrderItem },
   data () {
-    return { }
+    return {
+      orderList: []
+    }
+  },
+  created() {
+    this.$store.commit('setFooterVisiable' , true)
   }
 }
 </script>

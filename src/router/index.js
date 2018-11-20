@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/index'
+import ShopDetail from '@/components/home/ShopDetail'
 import Order from '@/components/order/index'
+import OrderDetail from '@/components/order/OrderDetail'
 import Profile from '@/components/profile/index'
 
 Vue.use(Router)
@@ -15,7 +17,12 @@ export default new Router({
     {
       path: '/msite',
       name: 'msite',
-      component: Home
+      component: Home,
+      children:[{
+        path:'shopdetail',
+        name:'/shopdetail',
+        component: ShopDetail
+      }]
     },
     {
       path: '/find',
@@ -25,7 +32,12 @@ export default new Router({
     {
       path: '/order',
       name: 'order',
-      component: Order
+      component: Order,
+      children:[{
+        path: 'detail',
+        name: 'OrderDetail' ,
+        component: OrderDetail
+      }]
     },
     {
       path: '/profile',

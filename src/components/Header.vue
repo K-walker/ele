@@ -1,8 +1,7 @@
 <template>
   <header>
-
     <div v-if ='type == 0' class="header-wrapper header-fixed">
-      <div class="goback-btn">
+      <div class="goback-btn" @click="goBack">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE2LjU1MiA1LjYzM0wxNC41MDggMy41OSAyLjI0MyAxNS44NTMgMTQuNTA4IDI4LjQxbDIuMDQ0LTIuMDQzLTEwLjIyLTEwLjUxM3oiLz48L3N2Zz4=">
       </div>
       <h1>{{title}}</h1>
@@ -23,14 +22,23 @@
 </template>
 
 <script>
+
+import {mapState} from 'vuex' 
+
 export default {
   name: 'Header',
-  props: {
-    type:Number,
-    title:String
-  },
+  computed : mapState({
+    type: state => state.header.type ,
+    title: state => state.header.title 
+  }),
   data () {
     return {
+
+    }
+  },
+  methods: {
+    goBack () {
+      this.$router.go(-1);
     }
   }
 }

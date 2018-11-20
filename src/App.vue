@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-  	<Header :type="type" :title="title"/>
+  	<Header/>
     <SearchBar v-show="type == 1"/>
-    <router-view/>
+    <router-view />
     <FooterMenu/>
   </div>
 </template>
@@ -17,8 +17,7 @@ export default {
   components: {FooterMenu , Header , SearchBar},
   data () {
   	return {
-      title:'',
-  		type: ''
+      type:0
   	}
   },
   created () {
@@ -32,9 +31,13 @@ export default {
   },
   methods : {
     setHeader (route) {
-      if(route.name === 'order')    { this.title = '订单' }
-      if(route.name === 'profile')  { this.title = '我的' }
-      this.type = route.name != 'msite' ? 0 : 1 ;
+      let type , title ;
+      if(route.name === 'find')     { title = '发现' }
+      if(route.name === 'order')    { title = '订单' }
+      if(route.name === 'profile')  { title = '我的' }
+      type = route.name != 'msite' ? 0 : 1 ;
+      this.$store.commit('setHeader' , {type, title})
+      this.type = type ;
     }
   }
 }

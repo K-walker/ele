@@ -9,6 +9,8 @@ import 'mint-ui/lib/style.css'
 import '../static/css/common.css'
 import Axios from 'axios' 
 
+import store from './store'
+
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
 
@@ -18,6 +20,7 @@ Vue.prototype.$http = Axios ;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

@@ -1,5 +1,5 @@
 <template>
-<footer>
+<footer v-if="show">
 	<section id='foot_guide'>
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
 			<defs>
@@ -45,13 +45,16 @@
 
 </template>
 <script>
-
+import {mapState} from 'vuex'
 export default {
   name: 'FooterMenu',
   data () {
     return {
     }
-  }
+  },
+  computed : mapState({
+  	show:'showFooterMenu'
+  })
 }
 </script>
 
