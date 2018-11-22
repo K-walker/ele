@@ -1,5 +1,5 @@
 <template>
-  <router-link to='/order/detail' class="order-item">
+  <router-link to='/order/detail/3032348101665859762' class="order-item">
 
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
         <defs>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import F from '@/utils/Function'
+import {parseImage} from '@/utils/Function'
 export default {
   name: 'OrderItem',
   data () {
@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     getImage (image_hash) {
-      return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!64x64r/gravity/Center/crop/64x64/')
+      return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!64x64r/gravity/Center/crop/64x64/')
     }
   }
 }

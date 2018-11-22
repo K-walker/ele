@@ -11,6 +11,9 @@ export default {
     return {
 
     }
+  },
+  created () {
+  	 this.$store.commit('setHeader' , {type:3});
   }
 }
 </script>

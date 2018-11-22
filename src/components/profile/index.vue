@@ -59,7 +59,7 @@
   </div>
 </template>
 <script>
-import F from '@/utils/Function'
+import {parseImage} from '@/utils/Function'
 export default {
   name: 'Profile',
   data () {
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
   	getImage (image_hash) {
-  		return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!198.72000000000003x198.72000000000003r/gravity/Center/crop/198.72000000000003x198.72000000000003/')
+  		return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!198.72000000000003x198.72000000000003r/gravity/Center/crop/198.72000000000003x198.72000000000003/')
   	}
   }
 }

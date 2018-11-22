@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import F from '@/utils/Function'
+import {parseImage} from '@/utils/Function'
 export default {
   name: 'ShopFilter',
   data () {
@@ -116,7 +116,7 @@ export default {
   },
   methods:{
     getImage (image_hash) {
-      return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!24x24r/gravity/Center/crop/24x24/')
+      return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!24x24r/gravity/Center/crop/24x24/')
     },
     onFilterTabClick (barItem) {
       this.currentFilterTabId = barItem.id ;

@@ -1,5 +1,6 @@
 <template>
-<section class="shop-item">
+<router-link to='/shop/E16791356703169402584'>
+	<section class="shop-item">
 		<div class="shop-info">
 			<div class="shop-logo">
 				<img src="https://fuss10.elemecdn.com/f/48/226c6e26d7398ddfd3821f638c2efpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/">
@@ -69,10 +70,9 @@
 					<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjOTk5IiBkPSJNNC41NzcgNS40MjNjLjc5Ljc3IDIuMDczLjc2NyAyLjg1NyAwbDQuMTItNC4wMjZDMTIuMzQ1LjYyNSAxMi4wOSAwIDEwLjk4NSAwSDEuMDI3Qy0uMDc3IDAtLjMzLjYzLjQ1NyAxLjM5N2w0LjEyIDQuMDI2eiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+" class="">
 				</div>
 			</div>
-			
 		</div>
-		
 	</section>
+</router-link>
 </template>
 
 <script>

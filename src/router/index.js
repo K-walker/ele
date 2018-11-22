@@ -17,12 +17,12 @@ export default new Router({
     {
       path: '/msite',
       name: 'msite',
-      component: Home,
-      children:[{
-        path:'shopdetail',
-        name:'/shopdetail',
-        component: ShopDetail
-      }]
+      component: Home
+    },
+    {
+      path:'/shop/:id',
+      name:'shop',
+      component: ShopDetail
     },
     {
       path: '/find',
@@ -34,7 +34,7 @@ export default new Router({
       name: 'order',
       component: Order,
       children:[{
-        path: 'detail',
+        path: 'detail/:id',
         name: 'OrderDetail' ,
         component: OrderDetail
       }]

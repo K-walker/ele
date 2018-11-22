@@ -52,7 +52,7 @@
 import FastEntries from './FastEntries'
 import ShopItem from './ShopItem'
 import ShopFilter from './ShopFilter'
-import F from '@/utils/Function' 
+import {parseImage} from '@/utils/Function' 
 export default {
   name: 'Home',
   components: {FastEntries , ShopItem , ShopFilter},
@@ -69,7 +69,7 @@ export default {
   },
   methods: {
   	getImage (image_hash) {
-  		return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/568x/')
+  		return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/568x/')
   	},
   	toggleFilterModal (isshow) {
   		this.filtermodal = isshow ;

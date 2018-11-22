@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
     header: {
      	type:0,
@@ -14,7 +14,9 @@ const store = new Vuex.Store({
   // mutations 中的函数必须是同步的函数
   mutations : {
 	setHeader (state , {type , title}) {
-		state.header.type = type ;
+    if(void 0 != type) {
+      state.header.type = type
+    }
 	 	state.header.title = title ;
 	},
 	setFooterVisiable (state , isShow) {
@@ -30,5 +32,3 @@ const store = new Vuex.Store({
   	}
   }
 })
-
-export default store

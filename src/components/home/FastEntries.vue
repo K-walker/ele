@@ -13,7 +13,7 @@
 
 <script>
 
-import F from '@/utils/Function'
+import {parseImage} from '@/utils/Function'
 
 export default {
   name: 'FastEntries',
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
 	getImage:function (image_hash) {
-		return F.parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/');
+		return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/');
 	}
   }
 }

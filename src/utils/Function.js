@@ -1,6 +1,5 @@
 
-export default {
-  parseImage (image_path , params) {
+export function parseImage (image_path , params)  {
     let url = 'https://fuss10.elemecdn.com/' 
     let a = image_path.charAt(0, 1) 
     let b = image_path.substring(1, 3)
@@ -12,5 +11,8 @@ export default {
       url += '.png';
     }
     return url + params;
-  }
+}
+
+export function setHeaderTitle (self , title) {
+  self.$store.commit('setHeader' , {title:title})
 }
