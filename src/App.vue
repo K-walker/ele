@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  	<Header />
+  	<Header v-show="showHeader"/>
     <SearchBar v-show="showSearchBar"/>
     <router-view />
     <FooterMenu v-show="showFooter"/>
@@ -17,6 +17,7 @@ export default {
   components: {FooterMenu , Header , SearchBar},
   data () {
   	return {
+      showHeader:true,
       footer:{
         msite:{
           type: 1,
@@ -48,7 +49,11 @@ export default {
   },
   computed : mapState({
     showFooter:'showFooterMenu',
-    showSearchBar: state => state.header.type
+    showSearchBar (state) {
+      console.log(state.header.type)
+      this.showHeader = state.header.type != 2 ;
+      return state.header.type == 1 ;
+    }
   }),
   methods : {
     ...mapMutations({

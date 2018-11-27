@@ -28,7 +28,7 @@ export default new Vuex.Store({
   actions : {
   	// 参考代码
   	testMehtod ({commit}) {
-		commit('mutationMethod')  		
+		  commit('mutationMethod')
   	}
   }
 })

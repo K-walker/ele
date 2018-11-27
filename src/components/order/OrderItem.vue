@@ -78,13 +78,16 @@ export default {
     .order-body {
       @extend .flex ;
       .shop-img {
+        width:28px;
+        height:28px;
         -webkit-flex:none;
         -ms-flex:none;
         -webkit-box-flex:0;
         flex:none;
         padding-right:10px;
         img {
-          width:28px;
+          width:100%;
+          height:100%;
         }
       }
       .order-content {

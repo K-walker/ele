@@ -2,7 +2,7 @@
   <div class="order-detail">
     <div class="order-top">
       <div class="shop-logo">
-        <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')" alt="商家logo">
+        <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')">
       </div>
       <h1>订单已送达</h1>
       <p>感谢你对饿了么的信任，期待再次光临</p>
@@ -22,7 +22,7 @@
     <div class="order-card">
       <div class="card-header">
         <router-link to='/'>
-          <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')" alt="商家logo">
+          <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')">
           <span>聚味小厨</span>
         </router-link>
         <div class="sprite-icon sprite-arrow-right"></div>
@@ -140,11 +140,13 @@ export default {
     box-shadow:0 1px 3px 0 rgba(0,0,0,0.05);
     background-color:#fff;
     .shop-logo {
+      width:60px;
+      height:60px;
+      margin: 0 auto ;
       padding: 5px 0;
       img {
-        width:60px;
-        height:60px;
-        margin: 0 auto ;
+        width:100%;
+        height:100%;
         display:block;
         border-radius:50%;
       }

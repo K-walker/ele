@@ -163,7 +163,7 @@ export default {
 .shop-filter-wrap {
   position: sticky;
   z-index:999;
-  top: 38px;
+  top: 42px;
   background-color: #fff;
 
   .shop-filter-header {
