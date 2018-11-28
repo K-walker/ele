@@ -34,6 +34,8 @@ export default {
 
 <style scoped>
 .order-list {
+  height:calc(100% - 85px);
 	padding-bottom:10px;
+  overflow: auto;
 }
 </style>

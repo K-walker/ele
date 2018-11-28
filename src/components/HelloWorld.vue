@@ -13,21 +13,13 @@ export default {
     return {
 
     }
+  },
+  methods : {
+    
   }
 }
 </script>
 
 <style scoped lang="css">
-.hello {
-	height:34px;
-	background-color: #03a9f4;
-	padding: 12px 12px 0 12px;
-	box-sizing:border-box;
-}
-.hello-inner {
-	background-color: green;
-}
-span {
-	font-size: 14px;
-}
+
 </style>

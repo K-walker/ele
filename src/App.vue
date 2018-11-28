@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-  	<Header v-show="showHeader"/>
-    <SearchBar v-show="showSearchBar"/>
+  	<Header v-if="showHeader"/>
+    <SearchBar v-if="showSearchBar"/>
     <router-view />
-    <FooterMenu v-show="showFooter"/>
+    <FooterMenu v-if="showFooter"/>
   </div>
 </template>
 
