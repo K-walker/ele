@@ -5,11 +5,18 @@
    	<ShopTab ref="shoptab">
 		<ShopTabContainer id="0">	
 			<ShopDetailRecommend ref="recommend" />
-			<ShopMenu v-on:menuscroll="onScroll"/>
+			<ShopMenu 
+				v-on:menuitemclick="onMenuItemClick"
+				v-on:menuscroll="onScroll"/>
 		</ShopTabContainer>
 		<ShopTabContainer id="1">2</ShopTabContainer>
 		<ShopTabContainer id="2">3</ShopTabContainer>
    	</ShopTab>
+	<ShopMenuDetail 
+		:data="shopDetail"
+		v-if="showMenuDetail"
+		v-on:closepage="showMenuDetail = false"
+	/>
   </div>
 </template>
 
@@ -19,12 +26,15 @@ import ShopDetailRecommend from './ShopDetailRecommend'
 import ShopMenu from './ShopMenu'
 import ShopTab from './ShopTab'
 import ShopTabContainer from './ShopTabContainer'
+import ShopMenuDetail from './ShopMenuDetail'
 export default {
   name: 'ShopDetail',
-  components: {ShopDetailHeader , ShopDetailRecommend , ShopMenu , ShopTab , ShopTabContainer},
+  components: {ShopDetailHeader , ShopDetailRecommend , ShopMenu , ShopTab , ShopTabContainer , ShopMenuDetail},
   data () {
     return {
-    	top:0
+    	top:0,
+    	shopDetail:null,
+    	showMenuDetail:false
     }
   },
   created () {
@@ -36,6 +46,10 @@ export default {
   	})
   },
   methods: {
+  	onMenuItemClick (shopInfo) {
+  		this.shopDetail = shopInfo;
+  		this.showMenuDetail = true ;
+  	},
   	onScroll () {
   		if(this.$el.scrollTop < this.top) {
   			this.scrollTopBySmooth(this.$el , this.top)

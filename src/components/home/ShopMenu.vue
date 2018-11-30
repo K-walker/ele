@@ -11,24 +11,9 @@
             </ul>
           </div>
           <div class="foods" @scroll="onScroll($event)">
-            <ul>
-              <li v-for="food in foods" :key="food.id">
-                <div class="foodimg">
-                  <img :src="getImage(food.image_path)">
-                </div>
-                <div class="foodinfo">
-                  <p class="title"><span>{{food.name}}</span></p>
-                  <p class="desc"><span>{{food.description}}</span></p>
-                  <p class="sale">{{food.tips}}</p>
-                  <div class="price">
-                    <span>￥{{food.specfoods[0].price}}</span>
-                    <span>
-                      <svg style="fill: rgb(35, 149, 255);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-minus"></use></svg>
-                    </span>
-                  </div>
-                </div>
-              </li>
-            </ul>
+            <ShopMenuItem 
+            :menus="foods"
+            v-on:menuitemclick="onMenuItemClick"/>
           </div>
         </div>
       </div>
@@ -37,6 +22,7 @@
 
 <script>
 import {parseImage} from '@/utils/Function'
+import ShopMenuItem from './ShopMenuItem'
 export default {
   name: 'ShopMenu',
   data () {
@@ -45,6 +31,7 @@ export default {
       foods:[]
     }
   },
+  components:{ShopMenuItem},
   created () {
     this.load();
   },
@@ -58,6 +45,9 @@ export default {
         });
         this.foods = foods ;
       })
+    },
+    onMenuItemClick (shopDetail) {
+      this.$emit('menuitemclick' , shopDetail);
     },
     onScroll () {
       this.$emit('menuscroll');
@@ -124,63 +114,6 @@ export default {
           height:100%;
           margin-left:5px;
           overflow:auto;
-          ul {
-            li {
-              @extend .flex;
-              padding:10px 0;
-              .foodimg {
-                width:65px;
-                height:65px;
-                img {
-                  width:100%;
-                  height:100%;
-                  border-radius:4px;
-                }
-              }
-              .foodinfo {
-                flex:1;
-                width:120px;
-                padding:0 10px;
-                position:relative;
-                p {
-                  @extend .flex;
-                  color:#666;
-                  span {
-                    white-space:nowrap;
-                    overflow:hidden;
-                    text-overflow:ellipsis;
-                  }
-                }
-                .title {
-                  color:#000;
-                  font-weight:600;
-                  font-size:14px;
-                }
-                .price {
-                  left:10px;
-                  right:10px;
-                  position:absolute;
-                  bottom:0;
-                  overflow:hidden;
-                  span:first-child {
-                    font-size:13px;
-                    float:left;
-                    color:rgb(255, 83, 57);
-                  }
-                  span {
-                    float:right;
-                    @extend .flex;
-                    @extend .flex-center;
-                    svg {
-                      width:16px;
-                      height:16px;
-                      fill:#ccc !important;
-                    }
-                  }
-                }
-              }
-            }
-          }
         }
       }
     }
