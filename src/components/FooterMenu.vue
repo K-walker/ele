@@ -26,7 +26,7 @@
 			<svg class="icon_style">
 				<use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="$route.path.indexOf('find') !== -1? '#findActive' : '#find'"></use>
 			</svg>
-			<span>搜索</span>
+			<span>发现</span>
 		</router-link>
 		<router-link to='/order' class="footer_item">
 			<svg class="icon_style">

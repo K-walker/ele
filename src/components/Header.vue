@@ -1,18 +1,18 @@
 <template>
   <header>
-    <div v-if ='type == 0' class="header-wrapper header-fixed">
+    <div v-if ='mode == 0' class="header-wrapper header-fixed">
       <div class="goback-btn" @click="goBack">
         <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIzMiI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTE2LjU1MiA1LjYzM0wxNC41MDggMy41OSAyLjI0MyAxNS44NTMgMTQuNTA4IDI4LjQxbDIuMDQ0LTIuMDQzLTEwLjIyLTEwLjUxM3oiLz48L3N2Zz4=">
       </div>
       <h1>{{title}}</h1>
     </div>
 
-    <div v-if ='type == 1' class="header-wrapper">
+    <div v-if ='mode == 1' class="header-wrapper">
         <div class="position-bar">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 31" class="position-icon">
               <path fill="#FFF" fill-rule="evenodd" d="M22.116 22.601c-2.329 2.804-7.669 7.827-7.669 7.827-.799.762-2.094.763-2.897-.008 0 0-5.26-4.97-7.643-7.796C1.524 19.8 0 16.89 0 13.194 0 5.908 5.82 0 13 0s13 5.907 13 13.195c0 3.682-1.554 6.602-3.884 9.406zM18 13a5 5 0 1 0-10 0 5 5 0 0 0 10 0z"></path>
             </svg>
-            <span>上海市人民政府</span>
+            <span>{{address}}</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 8" class="position-arrow">
               <path fill="#FFF" fill-rule="evenodd" d="M5.588 6.588c.78.78 2.04.784 2.824 0l5.176-5.176c.78-.78.517-1.412-.582-1.412H.994C-.107 0-.372.628.412 1.412l5.176 5.176z"></path>
             </svg>
@@ -23,14 +23,22 @@
 
 <script>
 
-import {mapState} from 'vuex' 
-
 export default {
   name: 'Header',
-  computed : mapState({
-    type: state => state.header.type ,
-    title: state => state.header.title 
-  }),
+  props:{
+    address:{
+      type:String,
+      default:'正在定位...'
+    },
+    title:{
+      type:String,
+      default:''
+    },
+    mode:{
+      type:Number,
+      default:0
+    }
+  },
   data () {
     return {
 

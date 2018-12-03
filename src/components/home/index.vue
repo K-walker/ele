@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+  	<Header :mode="1"/>
+    <SearchBar/>
   	<!-- 快捷入口 -->
     <FastEntries />
     <!-- 推荐商品 -->
@@ -45,17 +47,22 @@
     	<ShopItem/>
     	<ShopItem/>
     </section>
+    <FooterMenu/>
   </div>
 </template>
 
 <script>
+import SearchBar from '@/components/search/SearchBar'
+import FooterMenu from '@/components/FooterMenu'
+import Header from '@/components/Header'
+
 import FastEntries from './FastEntries'
 import ShopItem from './ShopItem'
 import ShopFilter from './ShopFilter'
 import {parseImage} from '@/utils/Function' 
 export default {
   name: 'Home',
-  components: {FastEntries , ShopItem , ShopFilter},
+  components: {FooterMenu , Header , SearchBar ,FastEntries , ShopItem , ShopFilter},
   data () {
     return {
     	filtermodal:false ,

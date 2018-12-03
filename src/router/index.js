@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Home from '@/components/home/index'
 import ShopDetail from '@/components/home/ShopDetail'
 import Order from '@/components/order/index'
+import Find from '@/components/find/index'
 import OrderDetail from '@/components/order/OrderDetail'
 import Profile from '@/components/profile/index'
+import Login from '@/components/login/index'
 
 Vue.use(Router)
 
@@ -27,7 +29,7 @@ export default new Router({
     {
       path: '/find',
       name: 'find',
-      component: Order
+      component: Find
     },
     {
       path: '/order',
@@ -43,6 +45,11 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: Profile
+    },
+    {
+      path:'/login',
+      name:'login',
+      component: Login
     }
   ]
 })

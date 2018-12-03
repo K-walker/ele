@@ -9,8 +9,12 @@
 				v-on:menuitemclick="onMenuItemClick"
 				v-on:menuscroll="onScroll"/>
 		</ShopTabContainer>
-		<ShopTabContainer id="1">2</ShopTabContainer>
-		<ShopTabContainer id="2">3</ShopTabContainer>
+		<ShopTabContainer id="1">
+      <ShopTabComment/>
+    </ShopTabContainer>
+		<ShopTabContainer id="2">
+      <ShopTabRst/>  
+    </ShopTabContainer>
    	</ShopTab>
 	<ShopMenuDetail 
 		:data="shopDetail"
@@ -27,9 +31,11 @@ import ShopMenu from './ShopMenu'
 import ShopTab from './ShopTab'
 import ShopTabContainer from './ShopTabContainer'
 import ShopMenuDetail from './ShopMenuDetail'
+import ShopTabRst from './ShopTabRst'
+import ShopTabComment from './ShopTabComment'
 export default {
   name: 'ShopDetail',
-  components: {ShopDetailHeader , ShopDetailRecommend , ShopMenu , ShopTab , ShopTabContainer , ShopMenuDetail},
+  components: {ShopTabComment , ShopTabRst , ShopDetailHeader , ShopDetailRecommend , ShopMenu , ShopTab , ShopTabContainer , ShopMenuDetail},
   data () {
     return {
     	top:0,
