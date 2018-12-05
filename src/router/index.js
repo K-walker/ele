@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/index'
+import Food from '@/components/home/food/index'
 import ShopDetail from '@/components/home/ShopDetail'
 import Order from '@/components/order/index'
 import Find from '@/components/find/index'
@@ -19,7 +20,12 @@ export default new Router({
     {
       path: '/msite',
       name: 'msite',
-      component: Home
+      component: Home,
+    },
+    {
+      path: '/msite/food',
+      name: 'food',
+      component: Food,
     },
     {
       path:'/shop/:id',

@@ -62,17 +62,17 @@ export default {
   		}
   	},
   	scrollTopBySmooth (el , distance) {
-		var timeId = 0 ;
-		clearInterval(timeId);
-		timeId = setInterval(function () {
-			var top = el.scrollTop + distance / 16 ; 
-			if(top > distance) {
-				top = distance ;
-				clearInterval(timeId)
-			}
-			el.scrollTop = top ;
-		} , 1000 / 24)
-	}
+			var timeId = 0 ;
+			clearInterval(timeId);
+			timeId = setInterval(function () {
+				var top = el.scrollTop + distance / 16 ; 
+				if(top > distance) {
+					top = distance ;
+					clearInterval(timeId)
+				}
+				el.scrollTop = top ;
+			} , 1000 / 24)
+		}
   }
 }
 </script>
