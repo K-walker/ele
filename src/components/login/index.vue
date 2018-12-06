@@ -73,7 +73,7 @@ export default {
     }
   }
   .login-form {
-    width:80%;
+    width:85%;
     margin:10px auto 0 auto;
     .login-item {
       @extend .flex;

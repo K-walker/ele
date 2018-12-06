@@ -16,7 +16,7 @@
       <div class="order-content">
         <div class="order-header">
           <div class="title">
-            <router-link to='/'>
+            <router-link to='/shop/Efdf9543u5fdfd45'>
               <span>聚味小厨</span>
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
@@ -156,7 +156,7 @@ export default {
       button {
         background-color:transparent;
         border:1px solid #2395ff;
-        padding:5px 8px;
+        padding:2px 8px;
         font-size:11px;
         color:#2395ff;
         border-radius:2px;

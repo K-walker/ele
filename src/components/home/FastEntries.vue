@@ -1,7 +1,7 @@
 <template>
 	<mt-swipe :auto="0" :continuous="false">
 		<mt-swipe-item v-for="item in swipeData" :key="item.group_type">
-			<router-link v-for='entry in item.entries' :key='entry.id' to='/'>
+			<router-link v-for='entry in item.entries' :key='entry.id' to='/msite/food'>
 				<div class="img-box">
 					<img :src="getImage(entry.image_hash)" :alt="entry.name">
 				</div>

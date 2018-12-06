@@ -63,7 +63,7 @@ header {
     top: 0;
   }
   .header-wrapper {
-    width: 100%;
+    width: 100%; 
     background-image: linear-gradient(90deg,#0af,#0085ff);
     background-image: -webkit-linear-gradient(left,#0af,#0085ff);
     background-image: -webkit-gradient(linear,left top,right top,from(#0af),to(#0085ff));
@@ -89,6 +89,7 @@ header {
       margin:0 auto;
       text-align:center;
       color:#fff;
+      font-size:15px;
     }
     .position-bar {
       display:flex;

@@ -28,12 +28,8 @@
 			</mt-swipe>
 	    </div>
     </div>
-    <div class="filtermodal" touchstart v-show="filtermodal" @click="filtermodal = !filtermodal"></div>
-    <div class="shoplist-title">推荐商家</div>
-    <ShopFilter 
-    	v-on:showfiltermodal="toggleFilterModal"
-    	v-on:filtershop="filterShop"
-    />
+	<div class="shoplist-title">推荐商家</div>
+    <BatchFilter v-on:filter="filterShop" />
     <!-- 商家列表 -->
     <section class="shoplist">
     	<ShopItem/>
@@ -52,20 +48,31 @@
 </template>
 
 <script>
-import SearchBar from '@/components/search/SearchBar'
-import FooterMenu from '@/components/FooterMenu'
-import Header from '@/components/Header'
-
-import FastEntries from './FastEntries'
-import ShopItem from './ShopItem'
-import ShopFilter from './ShopFilter'
+import	Header from '@/components/Header' 
+import	SearchBar from '@/components/search/SearchBar' 
+import	FastEntries from './FastEntries'
+import	BatchFilter from '@/components/BatchFilter'
+import	ShopItem from './ShopItem'
+import	FooterMenu from '@/components/FooterMenu'
 import {parseImage} from '@/utils/Function' 
 export default {
   name: 'Home',
-  components: {FooterMenu , Header , SearchBar ,FastEntries , ShopItem , ShopFilter},
+  components: {
+	// Header : import ('@/components/Header.vue') ,
+	// SearchBar :import ('@/components/search/SearchBar') ,
+	// FastEntries :import ('./FastEntries') ,
+	// BatchFilter : import ('@/components/BatchFilter'),
+	// ShopItem : import ('./ShopItem') , 
+	// FooterMenu : import ('@/components/FooterMenu'),
+	Header ,
+	SearchBar ,
+	FastEntries ,
+	BatchFilter ,
+	ShopItem ,
+	FooterMenu ,
+  },
   data () {
     return {
-    	filtermodal:false ,
     	banners:[]
     }
   },
@@ -77,9 +84,6 @@ export default {
   methods: {
   	getImage (image_hash) {
   		return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/568x/')
-  	},
-  	toggleFilterModal (isshow) {
-  		this.filtermodal = isshow ;
   	},
   	// 筛选商家
   	filterShop (item) {
@@ -102,15 +106,6 @@ export default {
 .banner img {
 	width: 100%;
 	height: 100%;
-}
-.filtermodal {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 3;
-    background: rgba(0,0,0,.5);
 }
 .shoplist-title {
 	display: -webkit-flex;

@@ -1,5 +1,6 @@
 <template>
   <div class="order-detail">
+    <Header title="订单详情" />
     <div class="order-top">
       <div class="shop-logo">
         <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')">
@@ -85,9 +86,11 @@
 </template>
 
 <script>
+import Header from '../Header'
 import {setHeaderTitle , parseImage} from '@/utils/Function'
 export default {
   name: 'OrderDetail',
+  components : {Header},
   data () {
     return {
       orderList:[ 

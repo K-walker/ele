@@ -1,6 +1,5 @@
 <template>
-<router-link to='/shop/E16791356703169402584'>
-	<section class="shop-item">
+	<section class="shop-item" @click="itemClick">
 		<div class="shop-info">
 			<div class="shop-logo">
 				<img src="https://fuss10.elemecdn.com/f/48/226c6e26d7398ddfd3821f638c2efpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/">
@@ -72,7 +71,6 @@
 			</div>
 		</div>
 	</section>
-</router-link>
 </template>
 
 <script>
@@ -82,6 +80,11 @@ export default {
     return {
 		showActivitiesList:false
     }
+  },
+  methods : {
+	itemClick () {
+		this.$router.push({path:`/shop/E123045f5445d505480`});
+	}
   }
 }
 </script>

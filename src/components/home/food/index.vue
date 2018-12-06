@@ -21,6 +21,39 @@
             <svg><use xlink:href="#drop-down"></use></svg>
         </div>
     </nav>
+    <section class="food-main">
+        <div class="setmeal">
+            <h2>
+                <span>省心套餐</span>
+                <span>更多&gt;</span>
+            </h2>
+            <div class="meals">
+                <div v-for="meal in meals"
+                    :key="meal.id"
+                    class="meal-item">
+                    <img :src="getImage(meal.image_hash , '?imageMogr/format/webp/thumbnail/!220x220r/gravity/Center/crop/220x220/')">
+                    <div class="describe">
+                        <p>{{meal.name}}</p>
+                        <p>{{meal.rate_text}}</p>
+                        <div class="price">
+                            <span>￥{{meal.price}}</span>
+                            <span>{{meal.discount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <BatchFilter v-on:filter="foodFilter"/>
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+        <ShopItem />
+    </section>
     <div class="filter" v-if="show" @click="show = !show">
         <div class="title">
             <h3>请选择分类</h3>
@@ -60,18 +93,23 @@
 
 <script>
 import Header from '@/components/Header';
+import BatchFilter from '@/components/BatchFilter';
+import ShopItem from '../ShopItem';
 import { parseImage } from '@/utils/Function'
 export default {
   name: 'Food',
-  components:{Header},
+  components:{Header , BatchFilter , ShopItem},
   data () {
     return {
         show:false,
-        // navTabs:[],
-        // activeTabId:0,
         categories:[],
         mainMenuId:0,
         subMenuId:0,
+        meals:[
+            {id:1,name:'香辣鸡腿堡',image_hash:'08bc40a8fc1e8bfd2166647240fc56cajpeg',price:'15',discount:'满36减19',rate_text:'218人好评'},
+            {id:2,name:'网红尖椒肉片蒸卤面',image_hash:'2e53136b0afea28abff6eca312c5fed4jpeg',price:'23.8',discount:'满25减12',rate_text:'18人好评'},
+            {id:3,name:'特色锅贴2两（10只）',image_hash:'baef08a25becff597ab430ba2c90c820jpeg',price:'19',discount:'满25减20',rate_text:'62人好评'}
+        ],
         subMenus:[]
     }
   },
@@ -82,9 +120,6 @@ export default {
 
         this.subMenus = this.categories[1].sub_categories;
         this.subMenuId = this.subMenus[0].id;
-        
-        // this.navTabs = this.categories[1].sub_categories;
-        // this.activeTabId = this.navTabs[0].id;
       })
   },
   methods : {
@@ -95,6 +130,9 @@ export default {
     },
     onSubMenuClick (submenu) {
         this.subMenuId = submenu.id;
+    },
+    foodFilter (item) {
+        console.log(item);
     },
     getImage (image_hash , imageMogr) {
         return parseImage(image_hash , imageMogr);
@@ -119,11 +157,19 @@ export default {
   -webkit-justify-content:space-between;
   justify-content:space-between;
 }
+.flex-space-around {
+  -webkit-box-pack:justify;
+  -webkit-justify-content:space-around;
+  justify-content:space-around;
+}
 .food {
+    height: 100%;
     nav {
         @extend .flex;
         background-image:-webkit-linear-gradient(90deg,#0af,#0085ff);
         background-image:linear-gradient(90deg,#0af,#0085ff);
+        position: relative;
+        z-index:2;
         ul {
             overflow-x:auto;
             -webkit-box-flex:1;
@@ -159,6 +205,80 @@ export default {
             }
         }
     }
+    .food-main {
+        background-color: #fff;
+        height: calc(100% - 60px);
+        overflow: auto;
+        position: relative;
+        z-index:1;
+        .setmeal {
+            padding: 0px 0px 5px 10px;
+            background-color: #fff;
+            h2 {
+                @extend .flex;
+                @extend .flex-center;
+                padding: 5px 10px 0px 0px ;
+                font-size:12px;
+                span:first-child {
+                    -webkit-box-flex: 1;
+                    flex:1;
+                }
+                span:last-child {
+                    font-size:9px;
+                    color: #666;
+                }
+            }
+            .meals {
+                width:100%;
+                @extend .flex;
+                padding-top:10px;
+                padding-bottom:5px;
+                box-sizing: border-box;
+                .meal-item {
+                    width:calc(100% / 3);
+                    padding-right:10px;
+                    box-sizing: border-box;
+                    img {
+                        width:100%;
+                    }
+                    .describe {
+                        margin-top:5px;
+                        p {
+                            color:#999;
+                            text-overflow:ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            margin-top:2px;
+                        }
+                        p:first-child {
+                            font-size:11px;
+                            font-weight:700;
+                            color:#000;
+                            margin-top:0;
+                        }
+                        .price {
+                            margin-top:3px;
+                            span {
+                                border:1px solid #e8470b;/*no*/
+                                color:#e8470b;
+                                font-size:8px;
+                                box-sizing:border-box;
+                            }
+                            span:first-child {
+                                border:none;
+                                font-weight:700;
+                                color:#000;
+                                font-size:11px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .batch-filter {
+            top:-1px; /*no*/
+        }
+    }
     .filter {
         width: 100%;
         height: 100%;
@@ -166,6 +286,7 @@ export default {
         top: 0;
         position: absolute;
         background-color: rgba(0,0,0,.5);
+        z-index:999;
         .title {
             @extend .flex ;
             @extend .flex-center ;

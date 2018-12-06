@@ -1,14 +1,12 @@
 <template>
-  <header class="hello">
-    <div class="hello-inner">
-    	<span>文字大小</span>
-    </div>
-  </header>
+  <div class="search">
+
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Search',
   data () {
     return {
 

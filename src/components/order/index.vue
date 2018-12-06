@@ -2,19 +2,16 @@
   <div class="order">
     <Header title="订单"/>
     <div class="order-list">
-      <template v-if="$route.name == 'order'">
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-         <OrderItem />
-      </template>
-      <router-view v-else />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
+        <OrderItem />
     </div>
     <FooterMenu/>
   </div>
