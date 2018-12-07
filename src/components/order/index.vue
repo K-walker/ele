@@ -16,14 +16,13 @@
     <FooterMenu/>
   </div>
 </template>
-
 <script>
-import FooterMenu from '@/components/FooterMenu'
-import Header from '@/components/Header'
-import OrderItem from './OrderItem'
 export default {
   name: 'Order',
-  components: { Header , FooterMenu , OrderItem },
+  components: { 
+    Header : () => import ('@/components/Header') , 
+	  FooterMenu : () => import ('@/components/FooterMenu') ,
+    OrderItem : () => import ('./OrderItem') },
   data () {
     return {
       orderList: []

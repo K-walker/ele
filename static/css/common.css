@@ -9,7 +9,7 @@ html , body {
 h1 , h2 , h3 , h4 , h5 , p {margin: 0;padding:0;}
 a {color:#000;text-decoration: none;-webkit-tap-highlight-color: rgba(255, 255, 255, 0);-webkit-user-select: none;-moz-user-focus: none;-moz-user-select: none;}
 ul , li {margin:0;padding: 0 ; list-style: none;}
-
+button { border: none; background: none;outline: none;}
 .pl-5 {padding-left: 5px;}
 .pr-5 {padding-right: 5px;}
 #app {height:100%;overflow: auto;}

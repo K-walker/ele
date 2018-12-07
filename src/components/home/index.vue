@@ -48,28 +48,16 @@
 </template>
 
 <script>
-import	Header from '@/components/Header' 
-import	SearchBar from '@/components/search/SearchBar' 
-import	FastEntries from './FastEntries'
-import	BatchFilter from '@/components/BatchFilter'
-import	ShopItem from './ShopItem'
-import	FooterMenu from '@/components/FooterMenu'
-import {parseImage} from '@/utils/Function' 
+import { parseImage } from '@/utils/Function' 
 export default {
   name: 'Home',
   components: {
-	// Header : import ('@/components/Header.vue') ,
-	// SearchBar :import ('@/components/search/SearchBar') ,
-	// FastEntries :import ('./FastEntries') ,
-	// BatchFilter : import ('@/components/BatchFilter'),
-	// ShopItem : import ('./ShopItem') , 
-	// FooterMenu : import ('@/components/FooterMenu'),
-	Header ,
-	SearchBar ,
-	FastEntries ,
-	BatchFilter ,
-	ShopItem ,
-	FooterMenu ,
+	Header : () => import('@/components/Header.vue') ,
+	SearchBar : () => import ('@/components/search/SearchBar') ,
+	FastEntries : () => import ('./FastEntries') ,
+	BatchFilter : () => import ('@/components/BatchFilter'),
+	ShopItem : () => import ('./ShopItem') , 
+	FooterMenu : () => import ('@/components/FooterMenu'),
   },
   data () {
     return {

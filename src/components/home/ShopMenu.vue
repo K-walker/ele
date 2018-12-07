@@ -22,7 +22,6 @@
 
 <script>
 import {parseImage} from '@/utils/Function'
-import ShopMenuItem from './ShopMenuItem'
 export default {
   name: 'ShopMenu',
   data () {
@@ -31,7 +30,9 @@ export default {
       foods:[]
     }
   },
-  components:{ShopMenuItem},
+  components:{
+      ShopMenuItem : () => import ('./ShopMenuItem')
+  },
   created () {
     this.load();
   },

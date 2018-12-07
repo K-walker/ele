@@ -25,17 +25,19 @@
 </template>
 
 <script>
-import ShopDetailHeader from './ShopDetailHeader'
-import ShopDetailRecommend from './ShopDetailRecommend'
-import ShopMenu from './ShopMenu'
-import ShopTab from './ShopTab'
-import ShopTabContainer from './ShopTabContainer'
-import ShopMenuDetail from './ShopMenuDetail'
-import ShopTabRst from './ShopTabRst'
-import ShopTabComment from './ShopTabComment'
+
 export default {
   name: 'ShopDetail',
-  components: {ShopTabComment , ShopTabRst , ShopDetailHeader , ShopDetailRecommend , ShopMenu , ShopTab , ShopTabContainer , ShopMenuDetail},
+  components: {
+		ShopDetailHeader : () =>  import ('./ShopDetailHeader') ,
+		ShopDetailRecommend : () =>  import ('./ShopDetailRecommend') ,
+		ShopMenu : () =>  import ('./ShopMenu') ,
+		ShopTab : () =>  import ('./ShopTab') ,
+		ShopTabContainer : () =>  import ('./ShopTabContainer') ,
+		ShopMenuDetail : () =>  import ('./ShopMenuDetail') ,
+		ShopTabRst : () =>  import ('./ShopTabRst') ,
+		ShopTabComment : () =>  import ('./ShopTabComment') ,
+	},
   data () {
     return {
     	top:0,

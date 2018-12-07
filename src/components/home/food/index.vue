@@ -92,13 +92,14 @@
 </template>
 
 <script>
-import Header from '@/components/Header';
-import BatchFilter from '@/components/BatchFilter';
-import ShopItem from '../ShopItem';
 import { parseImage } from '@/utils/Function'
 export default {
   name: 'Food',
-  components:{Header , BatchFilter , ShopItem},
+  components:{
+      Header : () => import ('@/components/Header') , 
+      BatchFilter : () => import ('@/components/BatchFilter'), 
+      ShopItem : () => import ('../ShopItem')
+  },
   data () {
     return {
         show:false,

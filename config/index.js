@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/api': {
-            target: 'http://192.168.220.178:8080',
+            target: 'http://192.168.9.165:3001',
             pathRewrite: {
                 '^/api': '/ele'
             }  
@@ -19,8 +19,8 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.220.178', // can be overwritten by process.env.HOST
-    port: 8888, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: '192.168.9.165', // can be overwritten by process.env.HOST
+    port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
@@ -56,7 +56,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps

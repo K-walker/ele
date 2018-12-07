@@ -86,11 +86,12 @@
 </template>
 
 <script>
-import Header from '../Header'
 import {setHeaderTitle , parseImage} from '@/utils/Function'
 export default {
   name: 'OrderDetail',
-  components : {Header},
+  components : {
+    Header : () => import ('@/components/Header') , 
+  },
   data () {
     return {
       orderList:[ 

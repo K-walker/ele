@@ -71,12 +71,13 @@
 </template>
 
 <script>
-import FooterMenu from '@/components/FooterMenu'
-import Header from '@/components/Header'
 import {parseImage} from '@/utils/Function'
 export default {
   name: 'Find',
-  components: { Header , FooterMenu},
+  components: { 
+    Header : () => import ('@/components/Header') , 
+	  FooterMenu : () => import ('@/components/FooterMenu') ,
+  },
   data () {
     return {
       activities:[
