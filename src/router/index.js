@@ -7,8 +7,10 @@ import Order from '@/components/order/index'
 import Find from '@/components/find/index'
 import OrderDetail from '@/components/order/OrderDetail'
 import Profile from '@/components/profile/index'
+import Address from '@/components/profile/address/index'
 import Login from '@/components/login/index'
 import Search from '@/components/search/index'
+import Location from '@/components/location/index'
 
 Vue.use(Router)
 
@@ -55,6 +57,11 @@ export default new Router({
       component: Profile
     },
     {
+      path: '/profile/address',
+      name: 'address',
+      component: Address
+    },
+    {
       path:'/login',
       name:'login',
       component: Login
@@ -63,6 +70,11 @@ export default new Router({
       path:'/search',
       name:'search',
       component: Search
-    }
+    },
+    {
+      path:'/location',
+      name:'location',
+      component: Location
+    },
   ]
 })

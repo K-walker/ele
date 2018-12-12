@@ -12,7 +12,3 @@ export function parseImage (image_path , params)  {
     }
     return url + params;
 }
-
-export function setHeaderTitle (self , title) {
-  self.$store.commit('setHeader' , {title:title})
-}

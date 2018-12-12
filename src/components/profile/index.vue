@@ -44,7 +44,12 @@
 			<p>金币</p>	
 		</div>
 	</div>
-	<section v-for="item in profileInfo.list" :key="item.id" :style="{marginTop:item.marginTop}">
+	<router-link 
+		class="link-item"
+		v-for="item in profileInfo.list"
+		:to="item.url"
+		:key="item.id" 
+		:style="{marginTop:item.marginTop}">
 		<div class="profile-item">
 			<div class="item-icon">
 				<svg fill="#4aa5f0"><use xmlns:xlink="http://www.w3.org/1999/xlink" :xlink:href="item.icon"></use></svg>
@@ -56,7 +61,7 @@
 				</svg>
 			</div>
 		</div>	
-	</section>
+	</router-link>
 	<FooterMenu/>
   </div>
 </template>
@@ -80,11 +85,11 @@ export default {
 				goldcoin:77
     		},
     		list:[
-				{id:1,text:'我的地址',icon:'#address',marginTop:'10px'},
-				{id:2,text:'金币商城',icon:'#point',marginTop:'10px'},
-				{id:3,text:'分享拿10元红包',icon:'#commend'},
-				{id:4,text:'我的客服',icon:'#service',marginTop:'10px'},
-				{id:5,text:'下载饿了么APP',icon:'#download'}
+				{id:1,text:'我的地址',icon:'#address',marginTop:'10px',url:'/profile/address'},
+				{id:2,text:'金币商城',icon:'#point',marginTop:'10px',url:'/'},
+				{id:3,text:'分享拿10元红包',icon:'#commend',url:'/'},
+				{id:4,text:'我的客服',icon:'#service',marginTop:'10px',url:'/'},
+				{id:5,text:'下载饿了么APP',icon:'#download',url:'/'}
     		]
     	}
     }
@@ -189,9 +194,10 @@ export default {
 			}
 		}
 	}
-	section {
+	.link-item {
 		background-color:#fff;
 		padding:0 10px;
+		display: block;
 		.profile-item {
 			display:flex;
 			padding:10px 0;

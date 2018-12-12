@@ -1,4 +1,5 @@
 <template>
+<transition name='slide-fade'>
   <div class="order-detail">
     <Header title="订单详情" />
     <div class="order-top">
@@ -83,10 +84,11 @@
       </ul>
     </div>
   </div>
+</transition>
 </template>
 
 <script>
-import {setHeaderTitle , parseImage} from '@/utils/Function'
+import {parseImage} from '@/utils/Function'
 export default {
   name: 'OrderDetail',
   components : {
@@ -110,9 +112,6 @@ export default {
         }}
       ]
     }
-  },
-  created () {
-    setHeaderTitle(this , '订单详情')
   },
   methods: {
     getImage (image_hash) {

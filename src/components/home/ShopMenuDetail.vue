@@ -133,7 +133,6 @@ export default {
     }
   }
 }
-
 .sidein-enter-active , 
 .sidein-leave-active {
   transition: top .3s ease;

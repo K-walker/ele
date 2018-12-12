@@ -1,4 +1,5 @@
 <template>
+    <transition name='slide-fade'>
     <div class="search">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0" aria-hidden="true">
             <defs>
@@ -53,6 +54,7 @@
             </div>
         </div>
     </div>
+    </transition>
 </template>
 
 <script>
