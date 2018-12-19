@@ -43,9 +43,6 @@ button { border: none; background: none;outline: none;}
 	background-color: transparent;
 	border-left: none;
 }
-.mint-indexlist-content {
-	margin-right: 0 !important;
-}
 .sprite-icon {
 	max-width:100%;
 	background-image:url(//shadow.elemecdn.com/faas/h5/static/sprite-generated.20497b0.png);

@@ -12,17 +12,18 @@
       </div>
       <div class="login-form">
         <div class="login-item tel-input">
-          <input type="tel" placeholder="手机号">
-          <span>获取验证码</span>
+		  <input type="tel" placeholder="手机号" v-model="login.tel">
+		  <span v-if="times == -1" @click.stop="getCode">获取验证码</span>
+		  <span class="count-down" v-else>{{`${times}s后重新发送`}}</span>
         </div>
          <div class="login-item code-input">
-          <input type="tel" placeholder="验证码">
+          <input type="tel" placeholder="验证码" v-model="login.code">
         </div>
         <div class="login-protocol">
           新用户登录即自动注册，并表示已同意<a>《用户服务协议》</a>
         </div>
         <div class="login-btn">
-          <button @click="login">登录</button>
+          <button @click="onLogin" :disabled="login.tel =='' || login.code =='' ">登录</button>
         </div>
         <p class="about">关于我们</p>
       </div>
@@ -30,18 +31,53 @@
 </template>
 
 <script>
+import {Toast} from 'mint-ui'
 export default {
-  name: 'Login',
-  data () {
-    return {
-
-    }
-  },
-  methods : {
-      login () {
-        
-      }
-  }
+	name: 'Login',
+	data () {
+		return {
+			login:{
+				tel:'11111111111',
+				code:12345
+			},
+			MAX_TIMES:59,
+			times:-1,
+			timeId:0
+		}
+	},
+	methods : {
+		onLogin () {
+			this.$http.post('/ele/login' , this.login).then( res => {  
+				this.$store.commit('setToken' , res.data);
+				Toast({
+					message: '登录成功',
+					position: 'bottom',
+					duration: 1000
+				});
+				setTimeout(function () {
+					this.$router.go(-1);
+				}.bind(this) , 1500);
+			}).catch ( () => {
+				Toast({
+					message: '登录失败',
+					position: 'bottom',
+					duration: 3000
+				});
+			})
+		},
+		getCode () {
+			this.times = this.MAX_TIMES ;
+			this.countDown();
+		},
+		countDown () {
+			clearInterval(this.timeId);
+			this.timeId = setInterval(function () {
+				if(this.times-- == 0) {
+					clearInterval(this.timeId);
+				}
+			}.bind(this) , 1000);
+		}
+	}
 }
 </script>
 
@@ -86,8 +122,12 @@ export default {
       span {
         padding:0 10px;
         font-size:11px;
-        color:#ccc;
-      }
+		color:#ccc;
+	  }
+	  .count-down {
+		  color: #0089dc;
+		  font-size:8px;
+	  }
       input {
         -webkit-box-flex:1;
         -webkit-flex:1;
@@ -116,6 +156,9 @@ export default {
         border-radius:4px; 
         border: none;
         font-size:12px;
+      }
+      button[disabled] {
+        background-color: #ddd;
       }
     }
     .about {

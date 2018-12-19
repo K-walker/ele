@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     load () {
-      this.$http.get('/api/menus').then( result => {
+      this.$http.get('/ele/menus').then( result => {
         this.menus = result.data.menu ;
         let foods = [] ;
         this.menus.forEach( menu => {

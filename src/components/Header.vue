@@ -28,7 +28,7 @@ export default {
   props:{
     address:{
       type:String,
-      default:'正在定位...'
+      default:''
     },
     title:{
       type:String,

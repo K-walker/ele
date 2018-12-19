@@ -117,7 +117,7 @@ export default {
     }
   },
   created () {
-      this.$http.get('/api/category').then( result => {
+      this.$http.get('/ele/category').then( result => {
         this.categories = result.data ;
         this.mainMenuId = this.categories[1].id ;
 

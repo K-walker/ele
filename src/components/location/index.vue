@@ -7,38 +7,38 @@
             </div>
             <h1>{{title}}</h1>
         </header>
-        <div v-show="mode == 0">
+        <div v-show="mode == 0" class="container">
             <div class="input-bar">
                 <div class="city-select" @click="selectCity">
-                    <span>{{currentCity}}</span>
+                    <span>{{currentCity.name || '选择城市'}}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 8" class="index-2KCWC_0"><path fill="#333" fill-rule="evenodd" d="M5.588 6.588c.78.78 2.04.784 2.824 0l5.176-5.176c.78-.78.517-1.412-.582-1.412H.994C-.107 0-.372.628.412 1.412l5.176 5.176z"></path></svg>
                 </div>
                 <div class="address-input">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="index-HhHdo_0"><path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path></svg>
-                    <input type="text" v-model="address" placeholder="请输入地址" @input="onSearchCity">
+                    <input type="text" v-model="query.keyword" placeholder="请输入地址" @input="onSearchCity">
                 </div>
             </div>
         </div>
-        <div v-show="mode == 1">
+        <div v-show="mode == 1" class="container">
             <div class="input-bar city">
                 <div class="city-search">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="index-HhHdo_0"><path fill-opacity=".38" d="M14.778 13.732a.739.739 0 1 1-1.056 1.036l-2.515-2.565a.864.864 0 0 1-.01-1.206 4.894 4.894 0 0 0 1.357-3.651c-.126-2.492-2.156-4.52-4.648-4.647a4.911 4.911 0 0 0-5.16 5.163c.126 2.475 2.13 4.496 4.605 4.642.451.026.896-.008 1.326-.1a.739.739 0 0 1 .308 1.446c-.56.12-1.137.164-1.72.13-3.227-.19-5.83-2.815-5.995-6.042a6.39 6.39 0 0 1 6.71-6.715c3.25.165 5.884 2.8 6.05 6.048a6.37 6.37 0 0 1-1.374 4.3l2.12 2.161z"></path></svg>
                     <input type="text" v-model="city" placeholder="输入城市名或者拼音" @input="onInputCity">
                 </div>
             </div>
-            <div class="current-city" v-show="resultList.length == 0">
-                <p>当前定位城市</p>
-                <div>上海市</div>
-            </div>
-            <mt-index-list v-show="resultList.length == 0">
-                <mt-index-section v-for="item in cityData.cityList" :key="item.idx" :index="item.idx">
-                    <mt-cell v-for="city in item.cities" @click="itemClick(city)"  :key="city.id" :title="city.name"></mt-cell>
+            <mt-index-list 
+                v-show="resultList.length == 0">
+                <mt-index-section 
+                    v-for="item in cityData.cityList" 
+                    :key="item.idx" 
+                    :index="item.idx">
+                    <mt-cell v-for="city in item.cities" @click="setLocation(city)"  :key="city.id" :title="city.name"></mt-cell>
                 </mt-index-section>
             </mt-index-list>
         </div>
         <ul  class="result-list" v-show="resultList.length > 0">
             <li v-for="item in resultList" 
-                @click="itemClick(item)"
+                @click="setCity(item)"
                 :key="item.id" 
                 :class="[mode == 0 ? 'search':'']">
                 <p>{{item.name}}</p>
@@ -60,15 +60,21 @@ export default {
                 alphabet:[],
                 cityList:[]
             },
-            currentCity:'选择城市',
+            currentCity:{
+                name:null
+            },
             allCities:[],
             resultList:[],
             city:'',
-            address:''
+            query:{
+                keyword:'',
+                offset:0 ,
+                limit:20
+            }
         }
     },
     created () {
-        this.$http.get('/api/city_list').then(result => {
+        this.$http.get('/ele/city_list').then(result => {
             this.cityData = result.data;
             this.cityData.cityList.forEach( item => {
                 this.allCities = this.allCities.concat(item.cities);
@@ -81,6 +87,7 @@ export default {
             this.title = '选择城市';
             this.resultList = [] ;
         },
+        // 本地检索城市
         onInputCity () {
             if(this.city == '') {
                 this.resultList = [] ;
@@ -93,8 +100,9 @@ export default {
                 })
             }.bind(this) , 150)
         },
+        // 网络查询: 根据关键词，查询城市
         onSearchCity () {
-            if(this.address == '') {
+            if(this.query.keyword == '') {
                 this.resultList = [] ;
                 return ;
             }
@@ -104,21 +112,31 @@ export default {
             }.bind(this) , 150)
         },
         requestSearch () {
-            this.$http.get('/api/position' , {
-                params:{
-                    keyword:this.address,
-                    offset:0,
-                    limit:20,
-                }
+            this.$http.get('/ele/position' , {
+                params:this.query
             }).then( result => {
                 this.resultList = result.data;
             }).catch (e => {
                 console.log(e);
             })
         },
-        itemClick (item) {
-            this.currentCity = item.name ;
+        // 设置城市
+        setCity (item) {
+            if(!this.query.hasOwnProperty('latitude')) {
+                this.$set(this.query , 'latitude' , '');
+            }
+            if(!this.query.hasOwnProperty('longitude')) {
+                this.$set(this.query , 'longitude' , '');
+            }
+            this.currentCity = item;
+            this.query.latitude = item.latitude ;
+            this.query.longitude = item.longitude ;
+            this.$store.commit('setLocation' , this.currentCity);
             this.goBack();
+        },
+        // 设置位置
+        setLocation (item) {
+            this.currentCity = item;
         },
         goBack () {
             if(this.mode == 1) {
@@ -132,7 +150,7 @@ export default {
     }
 }
 </script>
-  
+
 <style scoped lang="scss">
 .flex {
   display:-webkit-box; 
@@ -160,6 +178,7 @@ export default {
     height: 100%;
     overflow: hidden;
     background-color: #f5f5f5;
+    position: relative;
     header {
         height:38px;
         background-image: -webkit-gradient(linear,left top,right top,from(#0af),to(#0085ff));
@@ -182,6 +201,9 @@ export default {
             text-align: center;
             font-size:14px;
         }
+    }
+    .container {
+        height: calc(100% - 38px);
     }
     .input-bar {
         padding:6px 10px;
@@ -249,24 +271,14 @@ export default {
         background-image: -webkit-linear-gradient(left,#0af,#0085ff);
         background-image: linear-gradient(90deg,#0af,#0085ff);
     }
-    .current-city {
-        p {
-            color:#666;
-            font-size:10px;
-            margin-top:5px;
-            padding:5px 10px;
-            border-bottom:1px solid #ddd;
-        }
-        div {
-            padding:10px;
-            background-color: #fff;
-            border-bottom:1px solid #ddd;
-        }
-    }
     .result-list {
-        background-color:#fff;
-        height: calc(100% - 72px);
+        background-color: #fff;
         overflow: auto;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 72px;
+        bottom: 0;
         li {
             padding:10px;
             border-bottom:1px solid #ddd;
@@ -282,6 +294,19 @@ export default {
                 display: block;
                 font-size:8px;
             }
+        }
+    }
+}
+</style>
+
+<style lang="scss">
+.location {
+    .container {
+        .mint-indexlist {
+            height: calc(100% - 34px); 
+        }
+        .mint-indexlist-content {
+            height: 100%;
         }
     }
 }
