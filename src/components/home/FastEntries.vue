@@ -16,22 +16,54 @@
 import {parseImage} from '@/utils/Function'
 
 export default {
-  name: 'FastEntries',
-  mounted () {
-  	this.$http.get('/ele/entries').then( result => {
-  		this.swipeData = result.data ;
-  	})
-  },
-  data () {
-    return {
-    	swipeData: []
-    }
-  },
-  methods: {
-	getImage:function (image_hash) {
-		return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/');
+	name: 'FastEntries',
+	props:{
+		position:{
+			type:Object,
+			default:function () {
+				return {
+					latitude:'',
+					longitude:''
+				}
+			}
+		}
+	},
+	data () {
+		return {
+			swipeData: []
+		}
+	},
+	mounted () {
+		this.$http.get('/ele/shopping/entries').then( result => {
+			this.swipeData = this.formatData(result.data) ;
+		})
+	},
+	methods: {
+		formatData (list) {
+			let groups = [] ;
+			list.forEach( item => {
+				let res = groups.find( group => item.group_type == group.group_type);
+				if(!res) {
+					res = {
+						group_type:item.group_type,
+						group_name:item.group_name,
+						entries:[]
+					}
+					groups.push(res)
+				}
+				res.entries.push({
+					id:item.id,
+					image_hash:item.image_hash,
+					name:item.name,
+					link:item.link
+				})
+			})
+			return groups ;
+		},
+		getImage (image_hash) {
+			return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/');
+		}
 	}
-  }
 }
 </script>
 

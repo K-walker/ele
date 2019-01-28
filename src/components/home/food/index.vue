@@ -45,15 +45,7 @@
             </div>
         </div>
         <BatchFilter v-on:filter="foodFilter"/>
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
-        <ShopItem />
+        <ShopList />
     </section>
     <div class="filter" v-if="show" @click="show = !show">
         <div class="title">
@@ -64,7 +56,7 @@
             <div class="menu main-menu">
                 <ul>
                     <li v-for="category in categories" 
-                        v-if="category.id"
+                        v-show="category.id"
                         :class="[mainMenuId == category.id ? 'on':'']"
                         @click.stop="setSubMenus(category)"
                         :key="category.id"> 
@@ -100,7 +92,7 @@ export default {
   components:{
       Header : () => import ('@/components/Header') , 
       BatchFilter : () => import ('@/components/BatchFilter'), 
-      ShopItem : () => import ('../ShopItem')
+      ShopList : () => import ('../ShopList')
   },
   data () {
     return {

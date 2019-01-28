@@ -17,6 +17,7 @@ Vue.component(IndexSection.name, IndexSection);
 Vue.component(Cell.name, Cell);
 
 Vue.config.productionTip = false ;
+
 Vue.prototype.$http = Axios ;
 
 /* eslint-disable no-new */

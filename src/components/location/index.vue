@@ -7,6 +7,7 @@
             </div>
             <h1>{{title}}</h1>
         </header>
+    
         <div v-show="mode == 0" class="container">
             <div class="input-bar">
                 <div class="city-select" @click="selectCity">
@@ -19,6 +20,7 @@
                 </div>
             </div>
         </div>
+        <!-- 选择城市 -->
         <div v-show="mode == 1" class="container">
             <div class="input-bar city">
                 <div class="city-search">
@@ -74,7 +76,7 @@ export default {
         }
     },
     created () {
-        this.$http.get('/ele/city_list').then(result => {
+        this.$http.get('/ele/poi/city_list').then(result => {
             this.cityData = result.data;
             this.cityData.cityList.forEach( item => {
                 this.allCities = this.allCities.concat(item.cities);
@@ -112,7 +114,7 @@ export default {
             }.bind(this) , 150)
         },
         requestSearch () {
-            this.$http.get('/ele/position' , {
+            this.$http.get('/ele/poi/search_nearby' , {
                 params:this.query
             }).then( result => {
                 this.resultList = result.data;

@@ -9,9 +9,9 @@
 			</svg>
 			<Header :mode="1" :address="address" v-on:setposition="setLocaltion"/>
 			<SearchBar/>
-			<div v-if="location">
+			<div v-if="poi">
 				<!-- 快捷入口 -->
-				<FastEntries />
+				<FastEntries :position="poi"/>
 				<!-- 推荐商品 -->
 				<div class="recommend">
 					<div class="discount">
@@ -39,18 +39,7 @@
 				<div class="shoplist-title">推荐商家</div>
 				<BatchFilter v-on:filter="filterShop"/>
 				<!-- 商家列表 -->
-				<section class="shoplist">
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-					<ShopItem/>
-				</section>
+				<ShopList :position="poi"></ShopList>
 				<div class="shop-cart">
 					<svg><use :xlink:href="carts.length > 0 ? '#cart_red':'#cart'"></use></svg>
 				</div>
@@ -62,65 +51,65 @@
 </template>
 
 <script>
-import { mapState } from 'vuex' 
 import { parseImage } from '@/utils/Function' 
 export default {
 	name: 'Home',
 	components: {
-		Header : () => import('@/components/Header.vue') ,
+		Header : () => import('@/components/Header') ,
 		SearchBar : () => import ('@/components/search/SearchBar') ,
 		FastEntries : () => import ('./FastEntries') ,
 		BatchFilter : () => import ('@/components/BatchFilter'),
-		ShopItem : () => import ('./ShopItem') ,  
+		ShopList : () => import ('./ShopList') ,  
 		FooterMenu : () => import ('@/components/FooterMenu'),
 		NotAddress : () => import ('@/components/NotAddress'),
 	},
 	data () { 
 		return {
 			address:'正在定位...',
+			poi:null,
+			carts:[],
 			banners:[],
 		}  
 	},
-	computed : mapState({
-		carts: state => state.shoppingCart,
-		location (state) {
+	created () {
+		if(this.$store.state.location){
+			this.poi = this.$store.state.location ;
+			this.address = this.poi.name;
+			this.carts = this.$store.state.shoppingCart;
 			this.loadData();
-			if(state.location) {
-				this.address = state.location.name;
-			}
-			return state.location ;
 		}
-	}),
+	},
 	mounted () {
 		// this.getLocation();
 	},
 	methods: {
 		getLocation () {
-			this.$http.get('/ele/location' , {
-				latitude:'121.35504', 
-				longitude:'31.19111'
-			}).then(result => {
-				this.$store.commit( 'setLocation' , result.data)
-			}).catch(() => {
-				this.$store.commit( 'setLocation' , {
-					name:'未能获取地址'
-				})
-			})
+
+			// this.$http.get('/ele/location' , {
+			// 	latitude:'121.35504', 
+			// 	longitude:'31.19111'
+			// }).then(result => {
+			// 	this.$store.commit( 'setLocation' , result.data)
+			// }).catch(() => {
+			// 	this.$store.commit( 'setLocation' , {
+			// 		name:'未能获取地址'
+			// 	})
+			// })
+
 			// if (navigator.geolocation) {
 			// 	navigator.geolocation.getCurrentPosition( position => {
-			// 		// 获取当前地址
-			// 		// this.$store.commit('setLocation' , {
-			// 		// 	latitude : position.coords.latitude,
-			// 		// 	longitude: position.coords.longitude,
-			// 		// })
-			// 		console.log(position)
+			// 		获取当前地址
+			// 		this.$store.commit('setLocation' , {
+			// 			latitude : position.coords.latitude,
+			// 			longitude: position.coords.longitude,
+			// 		})
 			// 	})
 			// } else {
 			// 	console.log('not get position')
 			// }
 		},
 		loadData () {
-			this.$http.get('/ele/banners').then( result => {
+			this.$http.get('/ele/shopping/banners').then( result => {
 				this.banners = result.data
 			})
 		},
@@ -158,6 +147,7 @@ export default {
 }
 .banner {
 	height: 65px;
+	margin-top:5px;
 }
 .banner img {
 	width: 100%;

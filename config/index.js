@@ -1,8 +1,25 @@
 'use strict'
 // Template version: 1.3.1
 // see http://vuejs-templates.github.io/webpack for documentation.
-
+const os = require('os')
 const path = require('path')
+
+// 获取本机IP
+let netInfo = os.networkInterfaces();
+
+process.env.DEV_HOST = getIP();
+
+function getIP () {
+	for(let key in netInfo) {
+		for(let i = 0 ; i < netInfo[key].length ; i ++) {
+			let info = netInfo[key][i];
+			if(info.family == 'IPv4' && info.address != '127.0.0.1') {
+				return info.address;
+			}
+		}
+	}
+	return '';
+}
 
 module.exports = {
   dev: {
@@ -11,14 +28,14 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/ele': {
-            target: 'http://192.168.9.165:3001',
+            target: 'http://'+process.env.DEV_HOST+':3001',
             pathRewrite: {
                 '^/ele': '/ele'
             }  
         }
     },
     // Various Dev Server settings
-    host: '192.168.9.165', // can be overwritten by process.env.HOST
+    host: process.env.DEV_HOST, // can be overwritten by process.env.HOST
     port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
