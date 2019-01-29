@@ -17,17 +17,6 @@ import {parseImage} from '@/utils/Function'
 
 export default {
 	name: 'FastEntries',
-	props:{
-		position:{
-			type:Object,
-			default:function () {
-				return {
-					latitude:'',
-					longitude:''
-				}
-			}
-		}
-	},
 	data () {
 		return {
 			swipeData: []

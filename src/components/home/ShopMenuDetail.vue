@@ -2,7 +2,7 @@
   <transition name="sidein">
     <div class="menu-detail">
       <div class="menu-photo">
-        <img :src="getImage('1496f860e46fa1ba096495df4655456cjpeg')">
+        <img :src="getImage(shopInfo.image_path)">
         <span class="close-btn" @click="closePage">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" class="foodpanel-closeIcon_3a1DT"><defs><path id="a" d="M13.132 12l6.47-6.47a.75.75 0 0 0-1.061-1.06l-6.47 6.47-6.47-6.47a.75.75 0 0 0-1.06 1.06L11.01 12l-.072.071.071.071-6.47 6.47a.75.75 0 0 0 1.061 1.06l6.47-6.47 6.47 6.47a.75.75 0 0 0 1.06-1.06l-6.47-6.47.072-.07-.071-.072z"></path></defs> <g fill="none" fill-rule="evenodd"><use fill="#fff" fill-rule="nonzero" xlink:href="#a"></use> <path d="M0 0h24v24H0z"></path></g></svg>
         </span>
@@ -11,15 +11,15 @@
         <h2>{{shopInfo.name}}</h2>
         <p>
           <span>月售{{shopInfo.month_sales}}份</span>
-          <span>好评率100%</span>
+          <span>好评率{{shopInfo.satisfy_rate}}%</span>
         </p>
         <div class="price">
-          <span>${{shopInfo.specfoods[0].price}}</span>
+          <span>${{shopInfo.price}}</span>
           <span @click.stop="add">
             <svg style="fill: rgb(35, 149, 255);"><use xlink:href="#cart-minus"></use></svg>
           </span>
         </div>
-        <div class="desc">河粉250克,牛肉50克</div>
+        <div class="desc">{{shopInfo.description}}</div>
       </div>
     </div>
   </transition>

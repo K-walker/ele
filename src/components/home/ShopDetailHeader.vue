@@ -6,17 +6,17 @@
     </div>
     <div class="shopinfo">
       <div class="logo">
-        <img :src="getImage('ae691454a076858d4ae62bd35ddca298jpeg')">
+        <img :src="getImage(rst.image_path)">
       </div>
       <div class="info">
         <h2>
-          <span>锡缘无锡小笼馆(七宝老街店)</span>
+          <span>{{rst.name}}</span>
           <i></i>
         </h2>
         <div class="sale">
-          <span>评价4.8</span>
-          <span>月售569</span>
-          <span>蜂鸟专送约22分钟</span>
+          <span>评价{{rst.rating}}</span>
+          <span>月售{{rst.recent_order_num}}</span>
+          <span>蜂鸟专送约{{rst.order_lead_time}}分钟</span>
         </div>
         <div class="activites">
           <div class="left">
@@ -37,20 +37,23 @@
 <script>
 import {parseImage} from '@/utils/Function'
 export default {
-  name: 'ShopDetailHeader',
-  data () {
-    return {
-      
-    }
-  },
-  methods: {
-    getImage (image_hash) {
-      return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/240x/')
-    },
-    goback () {
-      this.$router.go(-1);
-    }
-  }
+	name: 'ShopDetailHeader',
+	props:{
+		rst:Object
+	},
+	data () {
+		return {
+			
+		}
+	},
+	methods: {
+		getImage (image_hash) {
+			return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/240x/')
+		},
+		goback () {
+			this.$router.go(-1);
+		}
+	}
 }
 </script>
 

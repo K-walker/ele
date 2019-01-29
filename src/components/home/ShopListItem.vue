@@ -92,7 +92,8 @@ export default {
 	},
 	methods : {
 		itemClick () {
-			this.$router.push({path:`/shop/${this.shop.id}`});
+			let id = this.shop.id ;
+			this.$router.push({name:'shop',params:{id}});
 		},
 		getImage (image_path) {
 			return parseImage(image_path , '?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/');

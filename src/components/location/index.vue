@@ -28,7 +28,8 @@
                     <input type="text" v-model="city" placeholder="输入城市名或者拼音" @input="onInputCity">
                 </div>
             </div>
-            <mt-index-list 
+            <IndexList :data="cityData"></IndexList>
+            <!-- <mt-index-list 
                 v-show="resultList.length == 0">
                 <mt-index-section 
                     v-for="item in cityData.cityList" 
@@ -36,7 +37,7 @@
                     :index="item.idx">
                     <mt-cell v-for="city in item.cities" @click="setLocation(city)"  :key="city.id" :title="city.name"></mt-cell>
                 </mt-index-section>
-            </mt-index-list>
+            </mt-index-list> -->
         </div>
         <ul  class="result-list" v-show="resultList.length > 0">
             <li v-for="item in resultList" 
@@ -54,6 +55,9 @@
 <script>
 export default {
     name: 'Location',
+    components:{
+        IndexList: () => import('../IndexList')
+    },
     data () {
         return {
             mode:0,

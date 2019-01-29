@@ -11,7 +11,7 @@
 			<SearchBar/>
 			<div v-if="poi">
 				<!-- 快捷入口 -->
-				<FastEntries :position="poi"/>
+				<FastEntries />
 				<!-- 推荐商品 -->
 				<div class="recommend">
 					<div class="discount">
@@ -40,6 +40,7 @@
 				<BatchFilter v-on:filter="filterShop"/>
 				<!-- 商家列表 -->
 				<ShopList :position="poi"></ShopList>
+				<!-- 购物车 -->
 				<div class="shop-cart">
 					<svg><use :xlink:href="carts.length > 0 ? '#cart_red':'#cart'"></use></svg>
 				</div>

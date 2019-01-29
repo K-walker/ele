@@ -17,6 +17,8 @@ export default new Vuex.Store({
 		},
 		setLocation (state , location) {
 			state.location = location;
+			// 保存到sessionStorage
+			sessionStorage.setItem('location' , JSON.stringify(location));
 		},
 		setToken (state , token) {
 			state.token = token;

@@ -3,7 +3,7 @@
     <li 
       v-for="food in foods"
       @click="onMenuItemClick(food)"
-      :key="food.id">
+      :key="food.item_id">
       <div class="foodimg">
         <img :src="getImage(food.image_path)">
       </div>
@@ -12,7 +12,7 @@
         <p class="desc"><span>{{food.description}}</span></p>
         <p class="sale">{{food.tips}}</p>
         <div class="price">
-          <span>￥{{food.specfoods[0].price}}</span>
+          <span>￥{{food.price}}</span>
           <span @click.stop="addToCart(food)">
             <svg style="fill: rgb(35, 149, 255);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#cart-minus"></use></svg>
           </span>
@@ -25,37 +25,32 @@
 <script>
 import {parseImage} from '@/utils/Function'
 export default {
-  name: 'ShopMenuItem',
-  data () {
-    return {
-      foods:[]
-    }
-  },
-  props:{
-    menus:{
-      type:Array,
-      default:function () {
-        return []
-      }
-    }
-  },
-  watch: {
-    menus (value) {
-      this.foods = value ;
-    }
-  },
-  methods : {
-    onMenuItemClick (food) {
-      this.$emit('menuitemclick' , food);
-    },
-    // 添加进购物车
-    addToCart () {
-      
-    },
-    getImage (image_hash) {
-      return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/240x/')
-    }
-  }
+	name: 'ShopMenuItem',
+	data () {
+		return {
+			
+		}
+	},
+	props:{
+		foods:{
+			type:Array,
+			default:function () {
+				return []
+			}
+		}
+	},
+	methods : {
+		onMenuItemClick (food) {
+			this.$emit('menuitemclick' , food);
+		},
+		// 添加进购物车
+		addToCart () {
+			
+		},
+		getImage (image_hash) {
+			return parseImage(image_hash , '?imageMogr/format/webp/thumbnail/240x/')
+		}
+	}
 }
 </script>
 
