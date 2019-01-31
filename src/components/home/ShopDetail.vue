@@ -102,25 +102,13 @@ export default {
 		}
 	},
 	mounted () {
-		this.loadData(this.$route.params.id)
-	},
-	watch : {
-		'$route': 'loadData'
+		this.loadData(this.$route.params.id);
 	},
 	methods: {
 		loadData (id) {
 			this.$http.get(`/ele/shopping/detail/${id}`).then( result => {
 				this.menuData = result.data.menu ;
 				this.rstInfo  = result.data.rst ;
-				// if(!isEmpty(result.data.rst.activities)) {
-				// 	this.rstInfo.activities = JSON.parse(result.data.rst.activities)
-				// }
-				// if(!isEmpty(result.data.rst.flavors)) {
-				// 	this.rstInfo.flavors = JSON.parse(result.data.rst.flavors)
-				// }
-				// if(!isEmpty(result.data.rst.flavors)) {
-				// 	this.rstInfo.flavors = JSON.parse(result.data.rst.flavors)
-				// }
 			}).catch( e => {
 				console.log(e)
 			})

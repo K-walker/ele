@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 footer {
-	height: 32px;
+	height: 42px;
 }
 #foot_guide {
 	position: fixed;

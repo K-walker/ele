@@ -38,9 +38,7 @@
 import {parseImage} from '@/utils/Function'
 export default {
 	name: 'ShopDetailHeader',
-	props:{
-		rst:Object
-	},
+	props:['rst'],
 	data () {
 		return {
 			

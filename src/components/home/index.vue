@@ -45,7 +45,7 @@
 					<svg><use :xlink:href="carts.length > 0 ? '#cart_red':'#cart'"></use></svg>
 				</div>
 			</div>
-			<NotAddress v-else/>
+			<NotData v-else :info="noDataInfo"/>
 			<FooterMenu />
 		</div>
 	</div>
@@ -62,7 +62,7 @@ export default {
 		BatchFilter : () => import ('@/components/BatchFilter'),
 		ShopList : () => import ('./ShopList') ,  
 		FooterMenu : () => import ('@/components/FooterMenu'),
-		NotAddress : () => import ('@/components/NotAddress'),
+		NotData : () => import ('@/components/NotData'),
 	},
 	data () { 
 		return {
@@ -70,6 +70,12 @@ export default {
 			poi:null,
 			carts:[],
 			banners:[],
+			noDataInfo:{
+				img:'https://fuss10.elemecdn.com/2/67/64f199059800f254c47e16495442bgif.gif',
+				title:'输入地址后才能订餐哦！',
+				text:'手动选择地址',
+				link:'/location'
+			}
 		}  
 	},
 	created () {

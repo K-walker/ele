@@ -3,6 +3,7 @@
         <div class="kk-index-list-inner">
             <ul class="index-list-group" 
                 v-for="item in data.cityList"
+                :id="item.idx"
                 :key="item.idx">
                 <li class="index-item-header">{{item.idx}}</li>
                 <li class="index-item-cell" 
@@ -14,7 +15,7 @@
             <div>
                 <span v-for="letter in data.alphabet" 
                     @click="onFastPosition(letter)"
-                    :key="letter">{{letter}}</span>
+                    :key="letter"><a :href="'#'+letter">{{letter}}</a></span>
             </div>
         </div>
         <span class="index-nav-tip" 

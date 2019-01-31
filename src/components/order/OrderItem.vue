@@ -1,42 +1,41 @@
 <template>
-  <router-link to='/order/detail/3032348101665859762' class="order-item">
+  	<router-link to='/order/detail/3032348101665859762' class="order-item">
+		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
+			<defs>
+			<symbol viewBox="0 0 547 987" id="arrow-right">
+				<path fill="#999" fill-rule="evenodd" d="M0 931.973l51.2 54.613 494.933-494.933L51.2.133 0 51.333l440.32 440.32L0 931.973z"></path></symbol><symbol viewBox="0 0 64 64" id="loading"><path fill="#999" fill-rule="evenodd" d="M60 36h-8c-2.203 0-4-1.797-4-4 0-2.208 1.797-4 4-4h8c2.203 0 4 1.792 4 4 0 2.203-1.797 4-4 4zM48.973 20.686a4 4 0 0 1-5.66 0 3.995 3.995 0 0 1 0-5.655l5.66-5.654a3.99 3.99 0 0 1 5.65 0 4 4 0 0 1 0 5.655l-5.65 5.656zM32 64a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4c2.203 0 4 1.797 4 4v8c0 2.203-1.797 4-4 4zm0-48c-2.212 0-4-1.792-4-4V4a3.999 3.999 0 1 1 8 0v8c0 2.208-1.797 4-4 4zM15.03 54.624a3.995 3.995 0 0 1-5.654 0 3.99 3.99 0 0 1 0-5.65l5.655-5.66a3.995 3.995 0 0 1 5.656 0 4.004 4.004 0 0 1 0 5.66l-5.655 5.65zm0-33.938L9.373 15.03a3.995 3.995 0 0 1 0-5.654 4 4 0 0 1 5.654 0l5.655 5.655a3.995 3.995 0 0 1 0 5.656 3.99 3.99 0 0 1-5.65 0zM16 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4c0-2.208 1.788-4 4-4h8a4 4 0 0 1 4 4zm32.973 11.314l5.65 5.66a3.99 3.99 0 0 1 0 5.65 3.992 3.992 0 0 1-5.65 0l-5.66-5.65a4 4 0 0 1 0-5.66 4 4 0 0 1 5.66 0z"></path>
+			</symbol>
+			</defs>
+		</svg>
 
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
-        <defs>
-          <symbol viewBox="0 0 547 987" id="arrow-right">
-            <path fill="#999" fill-rule="evenodd" d="M0 931.973l51.2 54.613 494.933-494.933L51.2.133 0 51.333l440.32 440.32L0 931.973z"></path></symbol><symbol viewBox="0 0 64 64" id="loading"><path fill="#999" fill-rule="evenodd" d="M60 36h-8c-2.203 0-4-1.797-4-4 0-2.208 1.797-4 4-4h8c2.203 0 4 1.792 4 4 0 2.203-1.797 4-4 4zM48.973 20.686a4 4 0 0 1-5.66 0 3.995 3.995 0 0 1 0-5.655l5.66-5.654a3.99 3.99 0 0 1 5.65 0 4 4 0 0 1 0 5.655l-5.65 5.656zM32 64a4 4 0 0 1-4-4v-8a4 4 0 0 1 4-4c2.203 0 4 1.797 4 4v8c0 2.203-1.797 4-4 4zm0-48c-2.212 0-4-1.792-4-4V4a3.999 3.999 0 1 1 8 0v8c0 2.208-1.797 4-4 4zM15.03 54.624a3.995 3.995 0 0 1-5.654 0 3.99 3.99 0 0 1 0-5.65l5.655-5.66a3.995 3.995 0 0 1 5.656 0 4.004 4.004 0 0 1 0 5.66l-5.655 5.65zm0-33.938L9.373 15.03a3.995 3.995 0 0 1 0-5.654 4 4 0 0 1 5.654 0l5.655 5.655a3.995 3.995 0 0 1 0 5.656 3.99 3.99 0 0 1-5.65 0zM16 32a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4c0-2.208 1.788-4 4-4h8a4 4 0 0 1 4 4zm32.973 11.314l5.65 5.66a3.99 3.99 0 0 1 0 5.65 3.992 3.992 0 0 1-5.65 0l-5.66-5.65a4 4 0 0 1 0-5.66 4 4 0 0 1 5.66 0z"></path>
-          </symbol>
-        </defs>
-    </svg>
-
-    <div class="order-body">
-      <div class="shop-img">
-        <img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')">
-      </div>
-      <div class="order-content">
-        <div class="order-header">
-          <div class="title">
-            <router-link to='/shop/Efdf9543u5fdfd45'>
-              <span>聚味小厨</span>
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
-              </svg>
-            </router-link>
-            <span class="order-status">订单已送达</span>
-          </div>
-          <p class="datetime">20小时50分钟</p>
-        </div>
-        <div class="order-detail">
-          <span class="detail">馒头等15件商品</span>
-          <span class="price">$16.34</span>
-        </div>
-      </div>
-    </div>
-    <div class="order-bottom">
-        <button>再来一单</button>
-        <button class="alert">评价得金币</button>
-    </div>
-  </router-link>
+		<div class="order-body">
+			<div class="shop-img">
+				<img :src="getImage('6dd0869a39e5af30f7f9160d73e1b936jpeg')">
+			</div>
+			<div class="order-content">
+				<div class="order-header">
+					<div class="title">
+						<router-link to='/shop/Efdf9543u5fdfd45'>
+							<span>聚味小厨</span>
+							<svg>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+							</svg>
+						</router-link>
+						<span class="order-status">订单已送达</span>
+					</div>
+					<p class="datetime">20小时50分钟</p>
+				</div>
+				<div class="order-detail">
+					<span class="detail">馒头等15件商品</span>
+					<span class="price">$16.34</span>
+				</div>
+			</div>
+		</div>
+		<div class="order-bottom">
+			<button>再来一单</button>
+			<button class="alert">评价得金币</button>
+		</div>
+  	</router-link>
 </template>
 
 <script>

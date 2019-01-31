@@ -38,7 +38,7 @@
           </div>
         </section>
 
-        <section>
+        <section class="no-mb">
           <div class="activity-header">
             <span class="line left"></span>
             <svg class="activity-icon"><use xlink:href="#alarm"></use></svg>
@@ -61,10 +61,10 @@
                   <span class="tag">{{item.tag}}</span>
               </div>
           </div>
-          <div class="more">
-            <span>查看更多</span>
-          </div>
         </section>
+        <div class="more">
+          <span>查看更多</span>
+        </div>
     </div>
   	<FooterMenu/>
   </div>
@@ -97,108 +97,128 @@ export default {
 
 <style scoped lang="scss">
 .flex {
-  display:-webkit-box; 
-  display:-webkit-flex;
-  display:flex;
+	display:-webkit-box; 
+	display:-webkit-flex;
+	display:flex;
 }
 .flex-center {
-  -webkit-box-align:center;
-  -webkit-align-items:center;
-  align-items:center;
+	-webkit-box-align:center;
+	-webkit-align-items:center;
+	align-items:center;
 }
 .flex-space-between {
-  -webkit-box-pack:justify;
-  -webkit-justify-content:space-between;
-  justify-content:space-between;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-between;
+	justify-content:space-between;
 }
 .flex-space-around {
-  -webkit-box-pack:justify;
-  -webkit-justify-content:space-around;
-  justify-content:space-around;
+	-webkit-box-pack:justify;
+	-webkit-justify-content:space-around;
+	justify-content:space-around;
 }
 .discover {
-  #alarm {
-    .st0{fill:#f94843}
-    .st1{fill:none;stroke:#f94843;stroke-width:2}
-  }
+	#alarm {
+		.st0{fill:#f94843}
+		.st1{fill:none;stroke:#f94843;stroke-width:2}
+	}
   .main {
-    .banner {
-      width: 100%;
-      min-height:86px;
-      img {
-        width: 100%;
-      }
-    }
+		.banner {
+			width: 100%;
+			min-height:86px;
+			img {
+				width: 100%;
+			}
+		}
     section {
-      margin-bottom:10px;
-      background-color: #fff;
+      	margin-bottom:10px;
+      	background-color: #fff;
+		&.no-mb {
+			margin-bottom: 0; /*no*/
+		}
     }
     .parts {
-      @extend .flex;
-      height:120px;
-      padding-bottom:10px;
-      .left {
-        width: 50%;
-        @extend .flex;
-        padding:15px 0 0 15px;
-        div {
-          p {
-            font-size:12px;
-            font-weight:500;
-            color:rgb(255, 153, 0);
-          }
-          p.tips {
-            font-size: 10px;
-            color: #999;
-            margin-top: 5px;
-          }
-        }
-        img {
-          width: 56px;
-          height: 56px;
-          -webkit-align-self: flex-end;
-          align-self: flex-end;
-        }
-      }
-      .right {
-        width: 50%;
-        padding:15px 15px 0 15px;
-        p {
-          font-size:12px;
-          font-weight:500;
-        }
-        p.tips {
-          font-size: 10px;
-          margin-top: 5px;
-        }
-        .top {
-          @extend .flex;
-          @extend .flex-space-between;
-          height:50%;
-          p {
-            color:rgb(27, 169, 225);
-          }
-          p.tips {
-            color: #999;
-          }
-        }
-        .bottom {
-          @extend .flex;
-          @extend .flex-center;
-          @extend .flex-space-between;
-          height:50%;
-          p {
-            color:rgb(237, 102, 96);
-          }
-          p.tips {
-            color: #999;
-          }
-        }
-        img {
-          width:36px;
-          height:36px;
-        }
-      }
+		@extend .flex;
+		height:120px;
+		padding-bottom:10px;
+		.left {
+			width: 50%;
+			@extend .flex;
+			padding:15px 0 0 15px;
+			div {
+				p {
+					font-size:12px;
+					font-weight:500;
+					color:rgb(255, 153, 0);
+				}
+				p.tips {
+					font-size: 10px;
+					color: #999;
+					margin-top: 5px;
+				}
+			}
+			img {
+				width: 56px;
+				height: 56px;
+				-webkit-align-self: flex-end;
+				align-self: flex-end;
+			}
+		}
+		.right {
+			width: 50%;
+			padding:15px 15px 0 15px;
+			p {
+				font-size:12px;
+				font-weight:500;
+			}
+			p.tips {
+				font-size: 10px;
+				margin-top: 5px;
+			}
+			.top {
+				@extend .flex;
+				@extend .flex-space-between;
+				height:50%;
+				p {
+					color:rgb(27, 169, 225);
+				}
+				p.tips {
+					color: #999;
+				}
+			}
+			.bottom {
+				@extend .flex;
+				@extend .flex-center;
+				@extend .flex-space-between;
+				height:50%;
+				p {
+					color:rgb(237, 102, 96);
+				}
+				p.tips {
+					color: #999;
+				}
+			}
+			img {
+				width:36px;
+				height:36px;
+			}
+		}
+    }
+	.more {
+		text-align: center;
+		font-size:11px;
+		color:#666;
+		padding: 8px 10px 5px 10px;
+		span::after {
+			content:'';
+			width:6px;
+			height:6px;
+			border:1px solid #ddd;
+			border-left-color:transparent;
+			border-bottom-color:transparent;
+			transform:rotate(45deg);
+			display: inline-block;
+			margin-left:5px;
+		}
     }
     .activity-header {
       text-align: center;
@@ -285,24 +305,6 @@ export default {
             }
           }
         }
-      }
-    }
-    .more {
-      text-align: center;
-      font-size:11px;
-      background-color: #fff;
-      color:#666;
-      padding: 10px;
-      span::after {
-        content:'';
-        width:6px;
-        height:6px;
-        border:1px solid #ddd;
-        border-left-color:transparent;
-        border-bottom-color:transparent;
-        transform:rotate(45deg);
-        display: inline-block;
-        margin-left:5px;
       }
     }
   }

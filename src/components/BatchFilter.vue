@@ -173,7 +173,7 @@ export default {
   position: -webkit-sticky;
   position: sticky;
   z-index:999;
-  top: 42px;
+  top: 41px;
   background-color: #fff;
 
   .filter-header {
